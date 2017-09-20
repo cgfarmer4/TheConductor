@@ -1,5 +1,6 @@
 ﻿namespace VRTK.Examples
 {
+    using System;
     using UnityEngine;
 
     public class FireExtinguisher_Base : VRTK_InteractableObject
@@ -9,15 +10,15 @@
 
         private VRTK_ControllerEvents controllerEvents;
 
-        public override void StartUsing(VRTK_InteractUse currentUsingObject = null)
+        public override void StartUsing(VRTK_InteractUse usingObject)
         {
-            base.StartUsing(currentUsingObject);
-            controllerEvents = currentUsingObject.GetComponent<VRTK_ControllerEvents>();
+            base.StartUsing(usingObject);
+            controllerEvents = usingObject.GetComponent<VRTK_ControllerEvents>();
         }
 
-        public override void StopUsing(VRTK_InteractUse previousUsingObject = null, bool resetUsingObjectState = true)
+        public override void StopUsing(VRTK_InteractUse previousUsingObject)
         {
-            base.StopUsing(previousUsingObject, resetUsingObjectState);
+            base.StopUsing(previousUsingObject);
             controllerEvents = null;
         }
 

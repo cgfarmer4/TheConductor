@@ -20,15 +20,15 @@
 
         private float spinSpeed = 0f;
 
-        public override void StartUsing(VRTK_InteractUse currentUsingObject = null)
+        public override void StartUsing(VRTK_InteractUse usingObject)
         {
-            base.StartUsing(currentUsingObject);
+            base.StartUsing(usingObject);
             spinSpeed = activeSpinSpeed;
         }
 
-        public override void StopUsing(VRTK_InteractUse previousUsingObject = null, bool resetUsingObjectState = true)
+        public override void StopUsing(VRTK_InteractUse usingObject)
         {
-            base.StopUsing(previousUsingObject, resetUsingObjectState);
+            base.StopUsing(usingObject);
             spinSpeed = idleSpinSpeed;
         }
 

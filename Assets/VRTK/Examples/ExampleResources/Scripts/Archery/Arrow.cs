@@ -63,7 +63,7 @@
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (inFlight && isActiveAndEnabled && gameObject.activeInHierarchy)
+            if (inFlight)
             {
                 ResetArrow();
             }

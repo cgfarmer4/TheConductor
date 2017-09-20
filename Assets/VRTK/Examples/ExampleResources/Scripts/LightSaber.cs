@@ -14,18 +14,18 @@
         private Color targetColor;
         private Color[] bladePhaseColors;
 
-        public override void StartUsing(VRTK_InteractUse currentUsingObject = null)
+        public override void StartUsing(VRTK_InteractUse usingObject)
         {
-            base.StartUsing(currentUsingObject);
+            base.StartUsing(usingObject);
             beamExtendSpeed = 5f;
             bladePhaseColors = new Color[2] { Color.blue, Color.cyan };
             activeColor = bladePhaseColors[0];
             targetColor = bladePhaseColors[1];
         }
 
-        public override void StopUsing(VRTK_InteractUse previousUsingObject = null, bool resetUsingObjectState = true)
+        public override void StopUsing(VRTK_InteractUse usingObject)
         {
-            base.StopUsing(previousUsingObject, resetUsingObjectState);
+            base.StopUsing(usingObject);
             beamExtendSpeed = -5f;
         }
 
