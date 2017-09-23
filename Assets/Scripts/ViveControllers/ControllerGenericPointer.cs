@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+*
+* Pre VRTK Controller example for SteamVR.
+* 
+*/
+
 public class ControllerGenericPointer : MonoBehaviour
 {
 

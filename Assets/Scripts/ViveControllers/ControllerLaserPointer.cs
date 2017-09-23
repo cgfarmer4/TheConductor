@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+*
+* Pre VRTK Pointer example for SteamVR.
+* 
+*/
+
 public class ControllerLaserPointer : MonoBehaviour {
 
     private SteamVR_TrackedObject trackedObj;

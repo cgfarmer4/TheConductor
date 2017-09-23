@@ -25,8 +25,8 @@ public class ModelPosition : MonoBehaviour
             List<float> positions = new List<float>();
 
             positions.Add(audioPositionElement.transform.position.x);
-            positions.Add(audioPositionElement.transform.position.y);
-            positions.Add(audioPositionElement.transform.position.z);
+            positions.Add(audioPositionElement.transform.position.y - .6f);
+            positions.Add(-audioPositionElement.transform.position.z);
 
             //Send positional data back to Ableton Live  (eap -> envelop audio position)
             OSCHandler.Instance.SendMessageToClient("myClient", "/audioPosition/" + name + "/xyz", positions);

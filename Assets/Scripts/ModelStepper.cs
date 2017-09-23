@@ -36,18 +36,13 @@ public class ModelStepper : MonoBehaviour
         gameObject.GetComponent<Renderer>().material.color = Color.green;
     }
 
-    public static float Remap(float value, float from1, float to1, float from2, float to2)
-    {
-        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
-    }
-
     void BetweenSelect(float touchpadY)
     {
         textComponent.text = "Between Select " + gameObject.name;
         selected = true;
 
         // -.7 to .7 ... scale to 0 - 127
-        float velocity = Remap(touchpadY, -.7f, .7f, 0f, 127f);
+        float velocity = ModelUtility.Remap(touchpadY, -.7f, .7f, 0f, 127f);
 
         // Data example - 1 62 0 120. 127 127
         List<float> stepperData = new List<float>();
@@ -61,7 +56,7 @@ public class ModelStepper : MonoBehaviour
         OSCHandler.Instance.SendMessageToClient("myClient", "/stepperData", stepperData);
 
         // 0 - 127 ... scale to 0 - 1
-        float greenValue = Remap(velocity, 0f, 127f, 0.5f, 1f);
+        float greenValue = ModelUtility.Remap(velocity, 0f, 127f, 0.5f, 1f);
 
         Color green = Color.green;
         green.a = greenValue;
