@@ -15,6 +15,7 @@ TagManager:
   - TeleportIgnore
   - ExcludeTeleport
   - Step
+  - Whiteboard
   layers:
   - Default
   - TransparentFX
