@@ -6,14 +6,15 @@ using System.Linq;
 public class Whiteboard : MonoBehaviour
 {
 
-    private int textureSize = 2048;
-    private int penSize = 10;
+    private int textureSize = 512;
+    private int penSize = 5;
     private Texture2D texture;
     private Color[] color;
 
     private bool touching, touchingLast;
     private float posX, posY;
     private float lastX, lastY;
+    private float meshHeight;
 
     // Use this for initialization
     void Start()
@@ -22,6 +23,11 @@ public class Whiteboard : MonoBehaviour
         Renderer renderer = GetComponent<Renderer>();
         this.texture = new Texture2D(textureSize, textureSize);
         renderer.material.mainTexture = (Texture)texture;
+
+        Mesh mesh = GetComponent<MeshFilter>().mesh;
+        Bounds bounds = mesh.bounds;
+        Vector3 size = bounds.size;
+        meshHeight = size.y;
     }
 
     // Update is called once per frame
@@ -50,6 +56,17 @@ public class Whiteboard : MonoBehaviour
         if (touching)
         {
             texture.Apply();
+
+            //OSC Message. Scale based on texture size
+            List<float> positions = new List<float>();
+
+            float mapX = ModelUtility.Remap(posX, 0f, 1f, 1, 513);
+            float mapY = ModelUtility.Remap(posY, 0f, meshHeight, -1f, 1f);
+
+            positions.Add(mapX);
+            positions.Add(mapY);
+
+            OSCHandler.Instance.SendMessageToClient("myClient", "/drawWave", positions);
         }
 
         this.lastX = (float)x;

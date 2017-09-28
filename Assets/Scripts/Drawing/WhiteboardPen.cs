@@ -17,6 +17,7 @@ public class WhiteboardPen : VRTK_InteractableObject
     {
         // Get our Whiteboard component from the whiteboard object
         this.whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
+        whiteboard.SetColor(Color.blue);
         this.InteractableObjectGrabbed += new InteractableObjectEventHandler(GrabObject);
     }
 
@@ -44,10 +45,9 @@ public class WhiteboardPen : VRTK_InteractableObject
             if (!(touch.collider.tag == "Whiteboard")) return;
 
             // Give haptic feedback when touching the whiteboard
-            //VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, 0.05f, 0.1f, 0.05f);
+            VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, 0.05f, 0.1f, 0.05f);
 
             // Set whiteboard parameters
-            whiteboard.SetColor(Color.blue);
             whiteboard.SetTouchPosition(touch.textureCoord.x, touch.textureCoord.y);
             whiteboard.ToggleTouch(true);
 
