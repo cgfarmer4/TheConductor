@@ -7,6 +7,11 @@ public class DrawLineManager : MonoBehaviour {
 
 	public Material lMat;
 
+    public Material squareWave;
+    public Material sawWave;
+    public Material cosineWave;
+    public Material triangleWave;
+
     //VRTK Controllers
     public VRTK_ControllerEvents leftControllerEvents;
     public VRTK_ControllerEvents rightControllerEvents;
@@ -14,10 +19,8 @@ public class DrawLineManager : MonoBehaviour {
     private bool triggerDown;
     private bool triggerStart;
 
-    //private LineRenderer currLine;
-    //private GraphicsLineRenderer currLine;
-    private LineRenderer currLine;
-	private int numClicks = 0;
+    private MeshLineRenderer currLine;
+    private int numClicks = 0;
 
     private void Start()
     {
@@ -35,18 +38,43 @@ public class DrawLineManager : MonoBehaviour {
     private void TriggerTouchStart(object sender, ControllerInteractionEventArgs e)
     {
         triggerStart = true;
+        var index = VRTK_ControllerReference.GetRealIndex(e.controllerReference);
+        controllerDevice = VRTK_DeviceFinder.GetControllerByIndex(index, true);
     }
 
     private void TriggerPressed(object sender, ControllerInteractionEventArgs e)
     {
         triggerDown = true;
-        var index = VRTK_ControllerReference.GetRealIndex(e.controllerReference);
-        controllerDevice = VRTK_DeviceFinder.GetControllerByIndex(index, true);
     }
 
     private void TriggerReleased(object sender, ControllerInteractionEventArgs e)
     {
         triggerDown = false;
+    }
+
+    //Selected from Radial Menu.
+    public void SquareWave()
+    {
+        OSCHandler.Instance.SendMessageToClient("myClient", "/chooseWave", "rect");
+        //Update Mesh Material 
+    }
+
+    public void SawWave()
+    {
+        OSCHandler.Instance.SendMessageToClient("myClient", "/chooseWave", "saw");
+        //Update Mesh Material 
+    }
+
+    public void TriangleWave()
+    {
+        OSCHandler.Instance.SendMessageToClient("myClient", "/chooseWave", "tri");
+        //Update Mesh Material 
+    }
+
+    public void CycleWave()
+    {
+        OSCHandler.Instance.SendMessageToClient("myClient", "/chooseWave", "cycle");
+        //Update Mesh Material 
     }
 
     // Update is called once per frame
@@ -55,26 +83,23 @@ public class DrawLineManager : MonoBehaviour {
         // Trigger Start
         if (triggerStart) { 
 			GameObject go = new GameObject ();
-            currLine = go.AddComponent<LineRenderer>();
-            //go.AddComponent<MeshFilter>();
-            //go.AddComponent<MeshRenderer>();
-            //currLine = go.AddComponent<GraphicsLineRenderer>();
-            //currLine.lmat = lMat;
+            go.AddComponent<MeshFilter>();
+            go.AddComponent<MeshRenderer>();
+            currLine = go.AddComponent<MeshLineRenderer>();
+            currLine.lmat = new Material(lMat);
 
-            currLine.startWidth = .1f;
-            currLine.endWidth = .1f;
-
-            //currLine.SetWidth(.1f);
-            numClicks = 0;
+            currLine.SetWidth(.1f);
             triggerStart = false;
         }
         // Trigger Hold
         else if (triggerDown) {
-            currLine.positionCount = numClicks + 1;
-            currLine.SetPosition(numClicks, controllerDevice.transform.position);
-
-            //currLine.AddPoint(controllerDevice.transform.position);
-			numClicks++;
-		}
+            currLine.AddPoint(controllerDevice.transform.position);
+            numClicks++;
+		} 
+        else if(!triggerDown)
+        {
+            numClicks = 0;
+            currLine = null;
+        }
 	}
 }

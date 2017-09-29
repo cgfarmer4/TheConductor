@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: device - Horizontal scanlines with flicker
+  m_Shader: {fileID: 4800000, guid: 002f6eab9ba9b994d8eec7af12c232ac, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: c8c4d53b12602cf439b1a39ba3b2b116, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: 
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 0, y: 0}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _PrimaryFlicker
+        second:
+          m_Texture: {fileID: 2800000, guid: 271b03d57c528f349a661f8ae6c0d919, type: 3}
+          m_Scale: {x: .0199999996, y: 0}
+          m_Offset: {x: 5, y: 0}
+      data:
+        first:
+          name: _SecondaryFlicker
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 2, y: 2}
+          m_Offset: {x: 10, y: 0}
+      data:
+        first:
+          name: _Scanlines
+        second:
+          m_Texture: {fileID: 2800000, guid: 271b03d57c528f349a661f8ae6c0d919, type: 3}
+          m_Scale: {x: .0500000007, y: .0500000007}
+          m_Offset: {x: 5, y: -.200000003}
+      data:
+        first:
+          name: _Noise
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: 
+        second: 0
+      data:
+        first:
+          name: _RimFalloff
+        second: .75
+      data:
+        first:
+          name: _Shading
+        second: .50000006
+      data:
+        first:
+          name: _Fresnel
+        second: 0
+      data:
+        first:
+          name: _Brightness
+        second: 4
+      data:
+        first:
+          name: _RimStrenght
+        second: 2
+      data:
+        first:
+          name: _Fade
+        second: 0
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 0, g: .832000017, b: 1, a: 1}
+      data:
+        first:
+          name: 
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _FlickerColor
+        second: {r: .5, g: .5, b: .5, a: 1}
+      data:
+        first:
+          name: _RimColor
+        second: {r: 1, g: .517241359, b: 0, a: 1}

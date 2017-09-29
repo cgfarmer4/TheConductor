@@ -1,37 +1,19 @@
-﻿/*Unity 3D Codes for "Building Tilt Brush from Scratch" YouTube tutorial by Fuseman
-https://www.youtube.com/watch?v=eMJATZI0A7c
-
-He also uses code from Bartek Drozdz so I feel I should mention that (as I don't know who did what, I just transcribed the code!)
-http://www.everyday3d.com/blog/index.php/2010/03/15/3-ways-to-draw-3d-lines-in-unity3d/
-*/
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
-
-/*
-class Point {
-	public Vector3 p;
-	public Point next;
-}
-*/
 
 [RequireComponent (typeof(MeshRenderer))]
 [RequireComponent (typeof(MeshFilter))]
-public class GraphicsLineRenderer : MonoBehaviour {
+public class MeshLineRenderer : MonoBehaviour {
 
 	public Material lmat;
-
 	private Mesh ml;
-
 	private Vector3 s;
-
 	private float lineSize = .1f;
-
 	private bool firstQuad = true;
 
 	void Start () {
-		ml = GetComponent<MeshFilter> ().mesh;
-		GetComponent<MeshRenderer> ().material = lmat;	
+		ml = GetComponent<MeshFilter>().mesh;
+		GetComponent<MeshRenderer>().material = lmat;	
 	}
 
 	public void SetWidth(float width) {
@@ -113,7 +95,7 @@ public class GraphicsLineRenderer : MonoBehaviour {
 		int tl = m.triangles.Length;
 
 		int[] ts = m.triangles;
-		ts = resizeTraingles(ts, 12); //!misspelling of triangles !!!
+		ts = resizeTriangles(ts, 12);
 
 		if (quad.Length ==2)
 			vl -= 4;
@@ -156,15 +138,9 @@ public class GraphicsLineRenderer : MonoBehaviour {
 		return nvs;
 	}
 
-	int[] resizeTraingles(int[]ovs, int ns){ //!!Misspelled triangles !!!
+	int[] resizeTriangles(int[]ovs, int ns){ //!!Misspelled triangles !!!
 		int[] nvs = new int[ovs.Length+ns];
 		for (int i = 0; i < ovs.Length; i++)	nvs [i] = ovs [i];
 		return nvs;
 	}
 }
-			
-		
-			
-//Not used in video but was created when new script was created.
-//I do not think you need this. But if so, place a beginning of code. It works without though.
-//using System.Collections;
