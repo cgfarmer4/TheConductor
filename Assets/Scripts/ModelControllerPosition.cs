@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRTK;
 
+//Attach to Controller.
+
 public class ModelControllerPosition : MonoBehaviour
 {
     private GameObject controllerDevice;

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRTK;
 
+//Attach to Piano prefab.
+
 public class ModelPianoKey : MonoBehaviour {
     public int keyNumber;
     public int midiNote;
@@ -12,11 +14,6 @@ public class ModelPianoKey : MonoBehaviour {
     private float impactMagnifier = 120f;
     private float collisionForce = 0f;
     private float maxCollisionForce = 300f;
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        Debug.Log("Piano Triggered.");
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

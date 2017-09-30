@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//Attach to PositionBlock prefab.
+
 public class ModelPosition : MonoBehaviour
 {
     GameObject audioPositionElement;

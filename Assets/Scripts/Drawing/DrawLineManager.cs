@@ -5,97 +5,121 @@ using VRTK;
 
 public class DrawLineManager : MonoBehaviour {
 
-	public Material lMat;
-
+    private Material activeMat;
+	public Material DefaultMat;
     public Material squareWave;
     public Material sawWave;
-    public Material cosineWave;
+    public Material cycleWave;
     public Material triangleWave;
 
     //VRTK Controllers
     public VRTK_ControllerEvents leftControllerEvents;
     public VRTK_ControllerEvents rightControllerEvents;
     private GameObject controllerDevice;
-    private bool triggerDown;
-    private bool triggerStart;
+    private bool triggerDown = false;
 
     private MeshLineRenderer currLine;
     private int numClicks = 0;
+    private string activeWave;
+    private VRTK_ControllerReference controllerReference;
 
     private void Start()
     {
+        activeWave = "square";
+        activeMat = DefaultMat;
         //Setup controller event listeners
-        leftControllerEvents.TriggerPressed += new ControllerInteractionEventHandler(TriggerPressed);
-        rightControllerEvents.TriggerPressed += new ControllerInteractionEventHandler(TriggerPressed);
-
-        leftControllerEvents.TriggerTouchStart += new ControllerInteractionEventHandler(TriggerTouchStart);
-        rightControllerEvents.TriggerTouchStart += new ControllerInteractionEventHandler(TriggerTouchStart);
-
-        leftControllerEvents.TriggerReleased += new ControllerInteractionEventHandler(TriggerReleased);
-        rightControllerEvents.TriggerReleased += new ControllerInteractionEventHandler(TriggerReleased);
+        leftControllerEvents.TriggerClicked += new ControllerInteractionEventHandler(TriggerClicked);
+        leftControllerEvents.TriggerUnclicked += new ControllerInteractionEventHandler(TriggerUnclicked);
+       
+        //Add multislider mapping for wavetable.
+        WaveTable waves = gameObject.AddComponent<WaveTable>();
+        waves.controllerEvents = rightControllerEvents;
     }
 
-    private void TriggerTouchStart(object sender, ControllerInteractionEventArgs e)
+    private void TriggerClicked(object sender, ControllerInteractionEventArgs e)
     {
-        triggerStart = true;
-        var index = VRTK_ControllerReference.GetRealIndex(e.controllerReference);
+        controllerReference = e.controllerReference;
+        var index =  VRTK_ControllerReference.GetRealIndex(e.controllerReference);
         controllerDevice = VRTK_DeviceFinder.GetControllerByIndex(index, true);
-    }
-
-    private void TriggerPressed(object sender, ControllerInteractionEventArgs e)
-    {
         triggerDown = true;
     }
 
-    private void TriggerReleased(object sender, ControllerInteractionEventArgs e)
+    private void TriggerUnclicked(object sender, ControllerInteractionEventArgs e)
     {
         triggerDown = false;
+        controllerDevice = null;
+
+        List<float> data = new List<float>();
+        data.Add(0f);
+        data.Add(0f);
+        //Send OSC Amplitude to 0 on trigger release.
+        OSCHandler.Instance.SendMessageToClient("myClient", "/waveData/" + activeWave, data);
     }
 
     //Selected from Radial Menu.
-    public void SquareWave()
+    private void SquareWave()
     {
         OSCHandler.Instance.SendMessageToClient("myClient", "/chooseWave", "rect");
-        //Update Mesh Material 
+        activeMat = squareWave;
+        activeWave = "rect";
     }
 
-    public void SawWave()
+    private void SawWave()
     {
         OSCHandler.Instance.SendMessageToClient("myClient", "/chooseWave", "saw");
-        //Update Mesh Material 
+        activeMat = sawWave;
+        activeWave = "saw";
     }
 
-    public void TriangleWave()
+    private void TriangleWave()
     {
         OSCHandler.Instance.SendMessageToClient("myClient", "/chooseWave", "tri");
-        //Update Mesh Material 
+        activeMat = triangleWave;
+        activeWave = "tri";
     }
 
-    public void CycleWave()
+    private void CycleWave()
     {
         OSCHandler.Instance.SendMessageToClient("myClient", "/chooseWave", "cycle");
-        //Update Mesh Material 
+        activeMat = cycleWave;
+        activeWave = "cycle";
     }
+
+    private List<float> ControllerVelocityAndAmplitude()
+    {
+        List<float> controllerData = new List<float>();
+        float velocity = VRTK_DeviceFinder.GetControllerVelocity(controllerReference).magnitude;
+        float height = controllerDevice.transform.position.y;
+        height = ModelUtility.Remap(height, 0, 4, 0, 20000);
+        velocity = ModelUtility.Remap(velocity, 0, 5, 0, 1);
+
+        controllerData.Add(height); //Send OSC Amplitude based on velocity. hover at .3
+        controllerData.Add(velocity); //Send OSC Frequency based on y
+        return controllerData;
+    }
+
 
     // Update is called once per frame
     void Update () {
 
         // Trigger Start
-        if (triggerStart) { 
-			GameObject go = new GameObject ();
-            go.AddComponent<MeshFilter>();
-            go.AddComponent<MeshRenderer>();
-            currLine = go.AddComponent<MeshLineRenderer>();
-            currLine.lmat = new Material(lMat);
+        if (triggerDown) {
+            if(numClicks == 0)
+            {
+                GameObject go = new GameObject();
+                go.AddComponent<MeshFilter>();
+                go.AddComponent<MeshRenderer>();
+                currLine = go.AddComponent<MeshLineRenderer>();
+                currLine.lmat = activeMat;
+                currLine.SetWidth(.1f);
+            }
 
-            currLine.SetWidth(.1f);
-            triggerStart = false;
-        }
-        // Trigger Hold
-        else if (triggerDown) {
             currLine.AddPoint(controllerDevice.transform.position);
             numClicks++;
-		} 
+
+            List<float> data = ControllerVelocityAndAmplitude();
+            OSCHandler.Instance.SendMessageToClient("myClient", "/waveData/" + activeWave, data);
+        } 
         else if(!triggerDown)
         {
             numClicks = 0;

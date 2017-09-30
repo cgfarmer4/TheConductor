@@ -4,33 +4,37 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using VRTK;
 
+
+//Attach to multislider prefab.
+
+
 public class ModelMultiSlider : MonoBehaviour
 {
     private GameObject collidingObject;
     private GameObject controllerDevice;
-    public VRTK_ControllerEvents leftControllerEvents;
-    public VRTK_ControllerEvents rightControllerEvents;
+    public VRTK_ControllerEvents controllerEvents;
+    public string oscName = "multiSlider";
     private bool triggerDown;
-    public Text textComponent;
+    public float scaleByAmount = .25f;
+    //public Text textComponent;
     public int sliderNumber;
+    private float maxHeight = 1.0f;
+    private float minHeight = 0f;
 
     private void Start()
     {
-        if(leftControllerEvents == null || rightControllerEvents == null)
+        if(controllerEvents == null)
         {
             VRTK_Logger.Error(VRTK_Logger.GetCommonMessage(VRTK_Logger.CommonMessageKeys.REQUIRED_COMPONENT_MISSING_FROM_GAMEOBJECT, "VRTK_ControllerEvents_ListenerExample", "VRTK_ControllerEvents", "the same"));
             return;
         }
 
         //Setup controller event listeners
-        leftControllerEvents.TriggerPressed += new ControllerInteractionEventHandler(TriggerPressed);
-        leftControllerEvents.TriggerReleased += new ControllerInteractionEventHandler(TriggerRelease);
-
-        rightControllerEvents.TriggerPressed += new ControllerInteractionEventHandler(TriggerPressed);
-        rightControllerEvents.TriggerReleased += new ControllerInteractionEventHandler(TriggerRelease);
+        controllerEvents.TriggerPressed += new ControllerInteractionEventHandler(TriggerPressed);
+        controllerEvents.TriggerReleased += new ControllerInteractionEventHandler(TriggerRelease);
     }
 
-        void Update()
+    void Update()
     {
         if (triggerDown && collidingObject)
         {
@@ -45,13 +49,16 @@ public class ModelMultiSlider : MonoBehaviour
 
     private void TransformCubeHeight(GameObject device)
     {
-        List<float> sliderData = new List<float>();
         float devicePosition = device.transform.position.y * 1.6f;
-        gameObject.transform.localScale = new Vector3(.25f, devicePosition, .25f);
-        textComponent.text = "/multiSlider : " + sliderNumber + " , " + devicePosition;
-        sliderData.Add(sliderNumber);
-        sliderData.Add(devicePosition);
-        OSCHandler.Instance.SendMessageToClient("myClient", "/multiSlider", sliderData);
+        if (devicePosition < maxHeight && devicePosition > minHeight)
+        {
+            List<float> sliderData = new List<float>();
+            gameObject.transform.localScale = new Vector3(scaleByAmount, devicePosition, scaleByAmount);
+            //textComponent.text = "/multiSlider : " + sliderNumber + " , " + devicePosition;
+            sliderData.Add(sliderNumber);
+            sliderData.Add(devicePosition);
+            OSCHandler.Instance.SendMessageToClient("myClient", "/" + oscName, sliderData);
+        } 
     }
 
     private void SetCollidingObject(Collider col)
@@ -61,10 +68,9 @@ public class ModelMultiSlider : MonoBehaviour
 
     public void TriggerPressed(object sender, ControllerInteractionEventArgs e)
     {
-        Debug.Log("Trigger Pressed!");
-        triggerDown = true;
         var index = VRTK_ControllerReference.GetRealIndex(e.controllerReference);
         controllerDevice = VRTK_DeviceFinder.GetControllerByIndex(index, true);
+        triggerDown = true;
     }
 
     public void TriggerRelease(object sender, ControllerInteractionEventArgs e)

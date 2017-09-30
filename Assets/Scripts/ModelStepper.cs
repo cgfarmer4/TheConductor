@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using VRTK.UnityEventHelper;
-using System;
-using VRTK;
+
+//Each block in the stepper.
 
 public class ModelStepper : MonoBehaviour
 {
@@ -17,6 +15,8 @@ public class ModelStepper : MonoBehaviour
     {
         gameObject.tag = "Step";
     }
+
+    //All events are fired from messages in the manager class.
 
     void Selected()
     {
@@ -82,9 +82,5 @@ public class ModelStepper : MonoBehaviour
 
             gameObject.GetComponent<Renderer>().material.color = Color.white;
         }
-    }
-
-    void Update()
-    {
     }
 }

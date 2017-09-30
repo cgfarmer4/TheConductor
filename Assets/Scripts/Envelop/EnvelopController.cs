@@ -42,17 +42,10 @@ public class EnvelopController : MonoBehaviour
         { // Position 
             foreach (OSCMessage message in pckt.Data)
             {
-
-                //Debug.Log(message.Address);
-
                 if (message.Address.Substring(1, 6) == "source")
                 {
                     String[] packetSplit = message.Address.Split(delimiterChars);
                     int inputNumber = Int32.Parse(packetSplit[2]);
-
-                    //Debug.Log("0::" + message.Data[0]);
-                    //Debug.Log("1::" + message.Data[1]);
-                    //Debug.Log("2::" + message.Data[2]);
 
                     float positionX = Midway.cx + float.Parse(message.Data[0].ToString()) * Midway.xRange / 2;
                     float positionY = Midway.cy + float.Parse((string)message.Data[2].ToString()) * Midway.yRange / 2;

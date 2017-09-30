@@ -4,18 +4,18 @@ using VRTK;
 using UnityEngine.UI;
 using System;
 
+//Attach to RadialKnob prefab.
+
 public class ModelRadial : MonoBehaviour
 {
-    public VRTK_ControllerEvents leftControllerEvents;
-    public VRTK_ControllerEvents rightControllerEvents;
+    public VRTK_ControllerEvents controllerEvents;
     public Image circleImage;
 
     // Use this for initialization
     void Start()
     { 
         //Setup controller event listeners
-        leftControllerEvents.TouchpadAxisChanged += new ControllerInteractionEventHandler(TouchpadUpdate);
-        rightControllerEvents.TouchpadAxisChanged += new ControllerInteractionEventHandler(TouchpadUpdate);
+        controllerEvents.TouchpadAxisChanged += new ControllerInteractionEventHandler(TouchpadUpdate);
     }
 
     void TouchpadUpdate(object sender, ControllerInteractionEventArgs e)

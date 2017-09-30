@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Attach to Slider callback function for on change.
+
 public class ModelSlider : MonoBehaviour
 {
     public void SliderChanged(float sliderValue)

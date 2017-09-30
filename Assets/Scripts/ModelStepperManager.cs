@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using VRTK;
 
+//Attach to Collection of stepper rows/columns. Stepper prefab.
+
 public class ModelStepperManager : MonoBehaviour
 {
     private static ModelStepperManager m_Instance;
@@ -12,25 +14,17 @@ public class ModelStepperManager : MonoBehaviour
     public List<GameObject> rows;
     List<List<GameObject>> columns = new List<List<GameObject>>();
 
-    public VRTK_ControllerEvents leftControllerEvents;
-    public VRTK_ControllerEvents rightControllerEvents;
-
-    public VRTK_DestinationMarker leftPointer;
-    public VRTK_DestinationMarker rightPointer;
+    public VRTK_ControllerEvents controllerEvents;
+    public VRTK_DestinationMarker pointer;
 
     Vector2 touchPadPosition;
 
     private void Start()
     {
         //Setup controller event listeners
-        leftControllerEvents.TouchpadAxisChanged += new ControllerInteractionEventHandler(TouchpadUpdate);
-        rightControllerEvents.TouchpadAxisChanged += new ControllerInteractionEventHandler(TouchpadUpdate);
-
-        leftPointer.DestinationMarkerEnter += new DestinationMarkerEventHandler(DestinationMarkerEnter);
-        rightPointer.DestinationMarkerEnter += new DestinationMarkerEventHandler(DestinationMarkerEnter);
-
-        leftPointer.DestinationMarkerHover += new DestinationMarkerEventHandler(DestinationMarkerHover);
-        rightPointer.DestinationMarkerHover += new DestinationMarkerEventHandler(DestinationMarkerHover);
+        controllerEvents.TouchpadAxisChanged += new ControllerInteractionEventHandler(TouchpadUpdate);
+        pointer.DestinationMarkerEnter += new DestinationMarkerEventHandler(DestinationMarkerEnter);
+        pointer.DestinationMarkerHover += new DestinationMarkerEventHandler(DestinationMarkerHover);
     }
 
     void Awake()

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Utility class for common functions.
+
 public class ModelUtility 
 {
     public static float Remap(float value, float from1, float to1, float from2, float to2)

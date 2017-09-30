@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRTK;
 
+//Attach to DrumPad prefab.
+
 public class ModelDrumPad : MonoBehaviour
 {
     public int padY;

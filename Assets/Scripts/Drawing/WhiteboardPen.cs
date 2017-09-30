@@ -5,8 +5,6 @@ using VRTK;
 
 public class WhiteboardPen : VRTK_InteractableObject
 {
-
-    //private VRTK_ControllerActions controllerActions;
     public Whiteboard whiteboard;
     private RaycastHit touch;
     private Quaternion lastAngle;

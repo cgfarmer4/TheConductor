@@ -306,6 +306,24 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 28202645}
   m_Enabled: 1
+--- !u!1 &72517752 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1592570553733024, guid: b13161616b5608d4fb74f7316b1bc891,
+    type: 2}
+  m_PrefabInternal: {fileID: 985837621}
+--- !u!114 &72517753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 72517752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f665b5b67188542869cc86c64afd4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerEvents: {fileID: 1749828306}
+  circleImage: {fileID: 0}
 --- !u!1 &119207942
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +758,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 72a1afbb3ae2f2140b79bca4d6e80603, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1264,6 +1282,86 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114205757898434956, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114463618462224950, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114966464741713942, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114381798978113370, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114829968773289908, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114863137730244430, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114815517636092154, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114667472819189396, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114533684621738366, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114280091834155174, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114396763833199622, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114014669303052560, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114406214773114522, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114447909476241208, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114408762268919920, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114832463279965222, guid: 77b57d73d0312a44a807afc45bacaaab,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77b57d73d0312a44a807afc45bacaaab, type: 2}
   m_IsPrefabParent: 0
@@ -2366,7 +2464,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 400913566}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.159, y: 1.5480013, z: -1.016}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.18477115, y: 0.9792677, z: 2.4806702}
   m_Children:
   - {fileID: 1178062100}
@@ -3639,7 +3737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &575294628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6000,9 +6098,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1178062099}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.498695, y: 0.6576343, z: -0.064095646}
-  m_LocalScale: {x: 0.403117, y: 1.0211712, z: 5.4121013}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0.244, z: 0.898}
+  m_LocalScale: {x: 0.18477115, y: 0.9792677, z: 2.4806702}
   m_Children: []
   m_Father: {fileID: 400913567}
   m_RootOrder: 0
@@ -6018,11 +6116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472b5652fe0dd494ab30b1422b2f68c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lMat: {fileID: 2100000, guid: b00c150bb8c6e2443b1d9b2559475832, type: 2}
-  squareWave: {fileID: 0}
-  sawWave: {fileID: 0}
-  cosineWave: {fileID: 0}
-  triangleWave: {fileID: 0}
+  DefaultMat: {fileID: 2100000, guid: 762071e814a49554f866e5e5722c0d7d, type: 2}
+  squareWave: {fileID: 2100000, guid: d786bc31d2b5d044bbfd6dfbca2409e3, type: 2}
+  sawWave: {fileID: 2100000, guid: 9f5fcb4155a32784d8b7ef988c9e99e5, type: 2}
+  cycleWave: {fileID: 2100000, guid: ea28d0fcb0bdf5b448cd7eecea33fdde, type: 2}
+  triangleWave: {fileID: 2100000, guid: 10c6a9bc24103c448a4e2a13ea544db9, type: 2}
   leftControllerEvents: {fileID: 1644025062}
   rightControllerEvents: {fileID: 1749828306}
 --- !u!1 &1179065884
@@ -8692,9 +8790,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1644025058}
   - component: {fileID: 1644025062}
-  - component: {fileID: 1644025061}
-  - component: {fileID: 1644025060}
-  - component: {fileID: 1644025059}
   - component: {fileID: 1644025064}
   - component: {fileID: 1644025063}
   m_Layer: 0
@@ -8718,92 +8813,6 @@ Transform:
   m_Father: {fileID: 835187232}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1644025059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1644025057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71b26f999cbdac8478b6c2a046256169, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activationButton: 10
-  activationMode: 0
-  selectionButton: 3
-  clickMethod: 0
-  attemptClickOnDeactivate: 0
-  clickAfterHoverDuration: 0
-  controller: {fileID: 0}
-  pointerOriginTransform: {fileID: 0}
-  hoveringElement: {fileID: 0}
-  controllerRenderModel: {fileID: 0}
-  hoverDurationTimer: 0
-  canClickOnHover: 0
-  autoActivatingCanvas: {fileID: 0}
-  collisionClick: 0
---- !u!114 &1644025060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1644025057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc65878c7102524bb8c2bcfbefff497, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playareaCursor: {fileID: 0}
-  directionIndicator: {fileID: 0}
-  customRaycast: {fileID: 0}
-  layersToIgnore:
-    serializedVersion: 2
-    m_Bits: 4
-  pointerOriginSmoothingSettings:
-    smoothsPosition: 0
-    maxAllowedPerFrameDistanceDifference: 0.003
-    smoothsRotation: 0
-    maxAllowedPerFrameAngleDifference: 1.5
-  validCollisionColor: {r: 0, g: 1, b: 0, a: 1}
-  invalidCollisionColor: {r: 1, g: 0, b: 0, a: 1}
-  tracerVisibility: 0
-  cursorVisibility: 0
-  maximumLength: 100
-  scaleFactor: 0.002
-  cursorScaleMultiplier: 25
-  cursorMatchTargetRotation: 0
-  cursorDistanceRescale: 0
-  maximumCursorScale: {x: Infinity, y: Infinity, z: Infinity}
-  customTracer: {fileID: 0}
-  customCursor: {fileID: 0}
---- !u!114 &1644025061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1644025057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ec704cceb26f6f49b6c900fc83d8d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableTeleport: 1
-  targetListPolicy: {fileID: 0}
-  pointerRenderer: {fileID: 1644025060}
-  activationButton: 10
-  holdButtonToActivate: 1
-  activateOnEnable: 0
-  activationDelay: 0
-  selectionButton: 10
-  selectOnPress: 0
-  selectionDelay: 0
-  selectAfterHoverDuration: 0
-  interactWithObjects: 0
-  grabToPointerTip: 0
-  controller: {fileID: 0}
-  interactUse: {fileID: 0}
-  customOrigin: {fileID: 0}
 --- !u!114 &1644025062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9093,7 +9102,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6f3c113bd3777a445801670f456a13e7, type: 2}
+  - {fileID: 2100000, guid: 72a1afbb3ae2f2140b79bca4d6e80603, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10195,7 +10204,7 @@ Prefab:
         type: 2}
       propertyPath: leftPointer
       value: 
-      objectReference: {fileID: 1644025061}
+      objectReference: {fileID: 0}
     - target: {fileID: 114887166597249740, guid: 327fa6fae62747543acefd8cfbede8c2,
         type: 2}
       propertyPath: rightPointer
@@ -10209,6 +10218,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114887166597249740, guid: 327fa6fae62747543acefd8cfbede8c2,
+        type: 2}
+      propertyPath: controllerEvents
+      value: 
+      objectReference: {fileID: 1749828306}
+    - target: {fileID: 114887166597249740, guid: 327fa6fae62747543acefd8cfbede8c2,
+        type: 2}
+      propertyPath: pointer
+      value: 
+      objectReference: {fileID: 1749828305}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 327fa6fae62747543acefd8cfbede8c2, type: 2}
   m_IsPrefabParent: 0
@@ -11008,7 +11027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1928429833
 Transform:
   m_ObjectHideFlags: 0
