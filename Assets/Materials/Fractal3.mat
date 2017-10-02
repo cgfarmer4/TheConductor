@@ -61,10 +61,10 @@ Material:
     - D: 0.68
     - E: 1.44
     - F: 1.05
-    - G: 0.85
+    - G: 0
     - I: 50
-    - U: 4.26
-    - V: 5
+    - U: 5
+    - V: -5
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -79,6 +79,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _SynthFrequency: 228
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

@@ -8,7 +8,7 @@ public class MeshLineRenderer : MonoBehaviour {
 	public Material lmat;
 	private Mesh ml;
 	private Vector3 s;
-	private float lineSize = .1f;
+	private float lineSize = .3f;
 	private bool firstQuad = true;
 
 	void Start () {

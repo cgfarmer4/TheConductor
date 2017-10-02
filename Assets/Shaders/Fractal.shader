@@ -13,7 +13,8 @@ Shader "2D Fractal Generator"
         F("F",Range(0.00,2.0)) = 1.04
         G("G",Range(0.00,2.0)) = 1.5	
         U("U",Range(-5.0,5.0)) = 0.0		
-        V("V",Range(-5.0,5.0)) = 0.0					
+        V("V",Range(-5.0,5.0)) = 0.0
+		 _SynthFrequency("Frequency", Range(0, 20000)) = .5
     }
     Subshader
     {
@@ -25,7 +26,7 @@ Shader "2D Fractal Generator"
             #pragma target 4.0
 
             int I;
-            float A,B,C,D,E,F,G,U,V;
+            float A,B,C,D,E,F,G,U,V, _SynthFrequency;
 						
             struct custom_type
             {
@@ -43,8 +44,8 @@ Shader "2D Fractal Generator"
 
             float4 pixel_shader (custom_type ps) : SV_TARGET
             {
-                float2 uv = float2(2.0*ps.uv.xy-1.0);
-                float4 c = float4(uv.xy+float2(U,V),G,0) * _SinTime;
+                float2 uv = float2(2.0*ps.uv.xy-1.0) * _SynthFrequency;
+                float4 c = float4(uv.xy+float2(U,V),G,0) * _CosTime;
                 for (int i = 0; i < I; i++)
                 {
                     c.xyz = float3(A,B,C)*abs(c.xyz/dot(c,c)-float3(D,E,F));    

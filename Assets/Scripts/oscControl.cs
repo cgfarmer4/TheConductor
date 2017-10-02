@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityOSC;
+using UnityEngine.Events;
 
 public class oscControl : MonoBehaviour
 {
@@ -38,7 +39,64 @@ public class oscControl : MonoBehaviour
 
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        // Reads all the messages received between the previous update and this one
+        for (var i = 0; i < OSCHandler.Instance.packets.Count; i++)
+        {
+            // Process OSC
+            ReceivedOSC(OSCHandler.Instance.packets[i]);
+            // Remove them once they have been read.
+            OSCHandler.Instance.packets.Remove(OSCHandler.Instance.packets[i]);
+            i--;
+        }
+    }
 
-    void Update() { }
+    // Process OSC message
+    private void ReceivedOSC(OSCPacket pckt)
+    {
+        if (pckt == null) { Debug.Log("Empty packet"); return; }
+
+        // Address
+        string address = pckt.Address.Substring(1);
+        switch(address)
+        {
+            case "bundle":
+                ParseBundle(pckt.Data);
+                break;
+        }
+    }
+
+    // Class declaration
+    [System.Serializable]
+    public class OSCEvent : UnityEvent<List<object>> { }
+
+    [Serializable]
+    public struct OSCRoute
+    {
+        public string name;
+        public OSCEvent callbackEvent;
+    }
+    public OSCRoute[] oscRoutes;
+
+    private void ParseBundle(List<object> data)
+    {
+        foreach (OSCMessage message in data)
+        {
+            //Check all public values for a match on the address router
+            foreach (OSCRoute route in oscRoutes)
+            {
+                if (route.name == message.Address) // need to run a regex match here.
+                {
+                    Debug.Log("Found the route yo!");
+
+                    //Each string then has a unity event callback associated with it.
+                    route.callbackEvent.Invoke(message.Data);
+                    break;
+                }
+            }
+        }
+    }
 
 }

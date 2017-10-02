@@ -55,11 +55,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - A: 0.73
-    - B: 0.65
+    - A: 0.64
+    - B: 0.76
     - C: 0.76
     - D: 0.68
-    - E: 1.44
+    - E: 1.42
     - F: 1.05
     - G: 2
     - I: 50
@@ -79,6 +79,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _SynthFrequency: 909
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

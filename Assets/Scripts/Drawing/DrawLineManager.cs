@@ -110,7 +110,7 @@ public class DrawLineManager : MonoBehaviour {
                 go.AddComponent<MeshFilter>();
                 go.AddComponent<MeshRenderer>();
                 currLine = go.AddComponent<MeshLineRenderer>();
-                currLine.lmat = activeMat;
+                currLine.lmat = new Material(activeMat);
                 currLine.SetWidth(.1f);
             }
 
@@ -118,6 +118,7 @@ public class DrawLineManager : MonoBehaviour {
             numClicks++;
 
             List<float> data = ControllerVelocityAndAmplitude();
+            currLine.lmat.SetFloat("_SynthFrequency", data[0]);
             OSCHandler.Instance.SendMessageToClient("myClient", "/waveData/" + activeWave, data);
         } 
         else if(!triggerDown)
