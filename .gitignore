@@ -309,3 +309,13 @@ UnityVS.meta
 
 # Folders to keep
 !Assets/Vendors/InControl/Source/Debug/
+
+Assets/Cinemachine
+Assets/Stagit
+Assets/Fluvio
+Assets/Fluvio-ProjectSettings
+Assets/PostProcessing
+Assets/earth
+Assets/Zololgo
+Assets/Unity\ Technologies
+
