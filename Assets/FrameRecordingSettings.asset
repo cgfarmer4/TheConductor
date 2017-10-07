@@ -25,7 +25,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DisplayName: Pixels
   source: 1
-  m_RenderSize: 1080
+  m_RenderSize: 1440
   m_RenderAspect: 0
   m_CameraTag: 
   m_FlipVertical: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Verbose: 0
   m_SynchFrameRate: 1
   m_BaseFileName:
-    m_Pattern: Underwater.<ext>
+    m_Pattern: Long2.<ext>
   m_DestinationPath:
     m_root: 0
     m_leaf: C:/Users/blinkchaser/Downloads
