@@ -19,8 +19,6 @@ public class MidiReceiveEvents : MonoBehaviour
     {
         if (data[2].ToString() == OSCReceiveName)
         {
-            Debug.Log("I'm an event " + data[2]);
-
             float pitch = float.Parse(data[0].ToString());
             float velocity = float.Parse(data[1].ToString());
 

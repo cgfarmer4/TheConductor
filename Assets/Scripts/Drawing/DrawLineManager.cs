@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VRTK;
+//using VRTK;
 
 public class DrawLineManager : MonoBehaviour {
 
@@ -13,38 +13,38 @@ public class DrawLineManager : MonoBehaviour {
     public Material triangleWave;
 
     //VRTK Controllers
-    public VRTK_ControllerEvents leftControllerEvents;
-    public VRTK_ControllerEvents rightControllerEvents;
+    //public VRTK_ControllerEvents leftControllerEvents;
+    //public VRTK_ControllerEvents rightControllerEvents;
     private GameObject controllerDevice;
     private bool triggerDown = false;
 
     private MeshLineRenderer currLine;
     private int numClicks = 0;
     private string activeWave;
-    private VRTK_ControllerReference controllerReference;
+    //private VRTK_ControllerReference controllerReference;
 
     private void Start()
     {
         activeWave = "square";
         activeMat = DefaultMat;
         //Setup controller event listeners
-        leftControllerEvents.TriggerClicked += new ControllerInteractionEventHandler(TriggerClicked);
-        leftControllerEvents.TriggerUnclicked += new ControllerInteractionEventHandler(TriggerUnclicked);
+        //leftControllerEvents.TriggerClicked += new ControllerInteractionEventHandler(TriggerClicked);
+        //leftControllerEvents.TriggerUnclicked += new ControllerInteractionEventHandler(TriggerUnclicked);
        
         //Add multislider mapping for wavetable.
         WaveTable waves = gameObject.AddComponent<WaveTable>();
-        waves.controllerEvents = rightControllerEvents;
+        //waves.controllerEvents = rightControllerEvents;
     }
 
-    private void TriggerClicked(object sender, ControllerInteractionEventArgs e)
+    private void TriggerClicked(object sender)
     {
-        controllerReference = e.controllerReference;
-        var index =  VRTK_ControllerReference.GetRealIndex(e.controllerReference);
-        controllerDevice = VRTK_DeviceFinder.GetControllerByIndex(index, true);
+        //controllerReference = e.controllerReference;
+        //var index =  VRTK_ControllerReference.GetRealIndex(e.controllerReference);
+        //controllerDevice = VRTK_DeviceFinder.GetControllerByIndex(index, true);
         triggerDown = true;
     }
 
-    private void TriggerUnclicked(object sender, ControllerInteractionEventArgs e)
+    private void TriggerUnclicked(object sender)
     {
         triggerDown = false;
         controllerDevice = null;
@@ -88,13 +88,13 @@ public class DrawLineManager : MonoBehaviour {
     private List<float> ControllerVelocityAndAmplitude()
     {
         List<float> controllerData = new List<float>();
-        float velocity = VRTK_DeviceFinder.GetControllerVelocity(controllerReference).magnitude;
+        //float velocity = VRTK_DeviceFinder.GetControllerVelocity(controllerReference).magnitude;
         float height = controllerDevice.transform.position.y;
         height = ModelUtility.Remap(height, 0, 4, 0, 20000);
-        velocity = ModelUtility.Remap(velocity, 0, 5, 0, 1);
+        //velocity = ModelUtility.Remap(velocity, 0, 5, 0, 1);
 
         controllerData.Add(height); //Send OSC Amplitude based on velocity. hover at .3
-        controllerData.Add(velocity); //Send OSC Frequency based on y
+        //controllerData.Add(velocity); //Send OSC Frequency based on y
         return controllerData;
     }
 

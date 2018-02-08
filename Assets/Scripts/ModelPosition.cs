@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,17 +24,18 @@ public class ModelPosition : MonoBehaviour
     {
         if (audioPositionElement.transform.hasChanged)
         {
-            List<float> positions = new List<float>();
+            List<object> positionData = new List<object>();
 
-            positions.Add(audioPositionElement.transform.position.x);
-            positions.Add(audioPositionElement.transform.position.y - .6f);
-            positions.Add(-audioPositionElement.transform.position.z);
+            positionData.Add(audioPositionElement.transform.position.x);
+            positionData.Add(audioPositionElement.transform.position.y - .6f);
+            positionData.Add(-audioPositionElement.transform.position.z);
+            positionData.Add(oscOutputName);
 
             //Send positional data back to Ableton Live  (eap -> envelop audio position)
-            OSCHandler.Instance.SendMessageToClient("myClient", "/audioPosition/" + name + "/xyz", positions);
+            OSCHandler.Instance.SendMessageToClient("myClient", "/audioPosition/xyz", positionData);
             textCanvas.SetActive(true);
             canvasState = true;
-            textComponent.text = "/audioPosition/" + name + "/xyz\n" + positions[0] + ", " + positions[1] + ", " + positions[2];
+            textComponent.text = "/audioPosition/xyz\n" + positionData[0] + ", " + positionData[1] + ", " + positionData[2];
             audioPositionElement.transform.hasChanged = false;
         }
         else if(canvasState == true)

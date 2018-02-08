@@ -14,8 +14,6 @@ public class MidiSendEvents : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("hit me!");
-
         List<object> midiData = new List<object>();
         midiData.Add(Pitch); // Pitch
         midiData.Add(Velocity); // Velocity

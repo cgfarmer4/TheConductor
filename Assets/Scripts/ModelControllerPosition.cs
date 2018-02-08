@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using VRTK;
 
 //Attach to Controller.
-
 public class ModelControllerPosition : MonoBehaviour
 {
     private GameObject controllerDevice;
@@ -13,9 +11,9 @@ public class ModelControllerPosition : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if(!GetComponent<VRTK_ControllerEvents>())
+        if(!GetComponent<SteamVR_TrackedObject>())
         {
-            Debug.LogError("Cannot attach controller to object without VRTK Controller events!");
+            Debug.LogError("Cannot attach controller to object without SteamVR Controller events!");
         }
     }
 
@@ -24,13 +22,14 @@ public class ModelControllerPosition : MonoBehaviour
     {
         if (gameObject.transform.hasChanged)
         {
-            List<float> positions = new List<float>();
+            List<object> controllerData = new List<object>();
 
-            positions.Add(gameObject.transform.position.x);
-            positions.Add(gameObject.transform.position.y);
-            positions.Add(gameObject.transform.position.z);
+            controllerData.Add(gameObject.transform.position.x);
+            controllerData.Add(gameObject.transform.position.y);
+            controllerData.Add(gameObject.transform.position.z);
+            controllerData.Add(oscOutputName);
 
-            OSCHandler.Instance.SendMessageToClient("myClient", "/controllerPosition/" + oscOutputName + "/xyz", positions);
+            OSCHandler.Instance.SendMessageToClient("myClient", "/controllerPosition/xyz", controllerData);
             gameObject.transform.hasChanged = false;
         }
     }

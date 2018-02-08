@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface Venue
+public class Venue
 {
-
+    public GameObject[] inputs;
+    public GameObject[] outputChannels;
 }
