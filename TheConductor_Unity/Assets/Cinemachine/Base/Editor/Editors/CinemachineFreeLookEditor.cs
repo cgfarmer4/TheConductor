@@ -7,15 +7,20 @@ using Cinemachine.Utility;
 namespace Cinemachine
 {
     [CustomEditor(typeof(CinemachineFreeLook))]
-    internal sealed class CinemachineFreeLookEditor : CinemachineVirtualCameraBaseEditor
+    internal sealed class CinemachineFreeLookEditor 
+        : CinemachineVirtualCameraBaseEditor<CinemachineFreeLook>
     {
-        private CinemachineFreeLook Target { get { return (CinemachineFreeLook)target; } }
-
         protected override List<string> GetExcludedPropertiesInInspector()
         {
             List<string> excluded = base.GetExcludedPropertiesInInspector();
-            if (!Target.m_UseCommonLensSetting)
-                excluded.Add(SerializedPropertyHelper.PropertyName(() => Target.m_Lens));
+            excluded.Add(FieldPath(x => x.m_Orbits));
+            if (!Target.m_CommonLens)
+                excluded.Add(FieldPath(x => x.m_Lens));
+            if (Target.m_BindingMode == CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp)
+            {
+                excluded.Add(FieldPath(x => x.m_Heading));
+                excluded.Add(FieldPath(x => x.m_RecenterToTargetHeading));
+            }
             return excluded;
         }
 
@@ -33,7 +38,35 @@ namespace Cinemachine
         public override void OnInspectorGUI()
         {
             // Ordinary properties
-            base.OnInspectorGUI();
+            BeginInspector();
+            DrawHeaderInInspector();
+            DrawPropertyInInspector(FindProperty(x => x.m_Priority));
+            DrawTargetsInInspector(FindProperty(x => x.m_Follow), FindProperty(x => x.m_LookAt));
+            DrawRemainingPropertiesInInspector();
+
+            // Orbits
+            EditorGUI.BeginChangeCheck();
+            SerializedProperty orbits = FindProperty(x => x.m_Orbits);
+            for (int i = 0; i < CinemachineFreeLook.RigNames.Length; ++i)
+            {
+                float hSpace = 3;
+                SerializedProperty orbit = orbits.GetArrayElementAtIndex(i);
+                Rect rect = EditorGUILayout.GetControlRect(true);
+                rect = EditorGUI.PrefixLabel(rect, new GUIContent(CinemachineFreeLook.RigNames[i]));
+                rect.height = EditorGUIUtility.singleLineHeight;
+                rect.width = rect.width / 2 - hSpace;
+
+                float oldWidth = EditorGUIUtility.labelWidth;
+                EditorGUIUtility.labelWidth = rect.width / 2; 
+                SerializedProperty heightProp = orbit.FindPropertyRelative(() => Target.m_Orbits[i].m_Height);
+                EditorGUI.PropertyField(rect, heightProp, new GUIContent("Height"));
+                rect.x += rect.width + hSpace;
+                SerializedProperty radiusProp = orbit.FindPropertyRelative(() => Target.m_Orbits[i].m_Radius);
+                EditorGUI.PropertyField(rect, radiusProp, new GUIContent("Radius"));
+                EditorGUIUtility.labelWidth = oldWidth; 
+            }
+            if (EditorGUI.EndChangeCheck())
+                serializedObject.ApplyModifiedProperties();
 
             // Rigs
             UpdateRigEditors();
@@ -49,6 +82,9 @@ namespace Cinemachine
                 --EditorGUI.indentLevel;
                 EditorGUILayout.EndVertical();
             }
+
+            // Extensions
+            DrawExtensionsWidgetInInspector();
         }
 
         string[] RigNames;
@@ -87,15 +123,6 @@ namespace Cinemachine
                 CinemachineFreeLook.CreateRigOverride
                     = (CinemachineFreeLook vcam, string name, CinemachineVirtualCamera copyFrom) =>
                     {
-                        // If there is an existing rig with this name, delete it
-                        List<Transform> list = new List<Transform>();
-                        foreach (Transform child in vcam.transform)
-                            if (child.GetComponent<CinemachineVirtualCamera>() != null
-                                && child.gameObject.name == name)
-                                list.Add(child);
-                        foreach (Transform child in list)
-                            Undo.DestroyObjectImmediate(child.gameObject);
-
                         // Create a new rig with default components
                         GameObject go = new GameObject(name);
                         Undo.RegisterCreatedObjectUndo(go, "created rig");
@@ -123,7 +150,7 @@ namespace Cinemachine
         private static void DrawFreeLookGizmos(CinemachineFreeLook vcam, GizmoType selectionType)
         {
             // Standard frustum and logo
-            CinemachineVirtualCameraBaseEditor.DrawVirtualCameraBaseGizmos(vcam, selectionType);
+            CinemachineBrainEditor.DrawVirtualCameraBaseGizmos(vcam, selectionType);
 
             Color originalGizmoColour = Gizmos.color;
             bool isActiveVirtualCam = CinemachineCore.Instance.IsLive(vcam);
@@ -134,24 +161,34 @@ namespace Cinemachine
             if (vcam.Follow != null)
             {
                 Vector3 pos = vcam.Follow.position;
-                var TopRig = vcam.GetRig(0).GetCinemachineComponent<CinemachineOrbitalTransposer>();
+                Vector3 up = Vector3.up;
+                CinemachineBrain brain = CinemachineCore.Instance.FindPotentialTargetBrain(vcam);
+                if (brain != null)
+                    up = brain.DefaultWorldUp;
+
                 var MiddleRig = vcam.GetRig(1).GetCinemachineComponent<CinemachineOrbitalTransposer>();
-                var BottomRig = vcam.GetRig(2).GetCinemachineComponent<CinemachineOrbitalTransposer>();
-                DrawCircleAtPointWithRadius(pos + Vector3.up * TopRig.m_HeightOffset, TopRig.m_Radius, vcam);
-                DrawCircleAtPointWithRadius(pos + Vector3.up * MiddleRig.m_HeightOffset, MiddleRig.m_Radius, vcam);
-                DrawCircleAtPointWithRadius(pos + Vector3.up * BottomRig.m_HeightOffset, BottomRig.m_Radius, vcam);
-                DrawCameraPath(pos, vcam);
+                Quaternion orient = MiddleRig.GetReferenceOrientation(up);
+                up = orient * Vector3.up;
+                float rotation = vcam.m_XAxis.Value + vcam.m_Heading.m_HeadingBias;
+                orient = Quaternion.AngleAxis(rotation, up) * orient;
+
+                CinemachineOrbitalTransposerEditor.DrawCircleAtPointWithRadius(
+                    pos + up * vcam.m_Orbits[0].m_Height, orient, vcam.m_Orbits[0].m_Radius);
+                CinemachineOrbitalTransposerEditor.DrawCircleAtPointWithRadius(
+                    pos + up * vcam.m_Orbits[1].m_Height, orient, vcam.m_Orbits[1].m_Radius);
+                CinemachineOrbitalTransposerEditor.DrawCircleAtPointWithRadius(
+                    pos + up * vcam.m_Orbits[2].m_Height, orient, vcam.m_Orbits[2].m_Radius);
+
+                DrawCameraPath(pos, orient, vcam);
             }
 
             Gizmos.color = originalGizmoColour;
         }
 
-        private static void DrawCameraPath(Vector3 atPos, CinemachineFreeLook vcam)
+        private static void DrawCameraPath(Vector3 atPos, Quaternion orient, CinemachineFreeLook vcam)
         {
             Matrix4x4 prevMatrix = Gizmos.matrix;
-            Matrix4x4 localToWorld = Matrix4x4.TRS(
-                    atPos, Quaternion.AngleAxis(vcam.m_XAxis.Value, Vector3.up), Vector3.one);
-            Gizmos.matrix = localToWorld;
+            Gizmos.matrix = Matrix4x4.TRS(atPos, orient, Vector3.one);
 
             const int kNumStepsPerPair = 30;
             Vector3 currPos = vcam.GetLocalPositionForCameraFromInput(0f);
@@ -164,26 +201,6 @@ namespace Cinemachine
                 currPos = nextPos;
             }
             Gizmos.matrix = prevMatrix;
-        }
-
-        private static void DrawCircleAtPointWithRadius(Vector3 point, float radius, CinemachineFreeLook vcam)
-        {
-            Matrix4x4 prevMatrix = Gizmos.matrix;
-            Gizmos.matrix = Matrix4x4.TRS(point, Quaternion.identity, radius * Vector3.one);
-            Color prevGizmosColour = Gizmos.color;
-
-            const int kNumPoints = 25;
-            Vector3 currPoint = Vector3.forward;
-            Quaternion rot = Quaternion.AngleAxis(360f / (float)kNumPoints, Vector3.up);
-            for (int i = 0; i < kNumPoints + 1; ++i)
-            {
-                Vector3 nextPoint = rot * currPoint;
-                Gizmos.DrawLine(currPoint, nextPoint);
-                currPoint = nextPoint;
-            }
-
-            Gizmos.matrix = prevMatrix;
-            Gizmos.color = prevGizmosColour;
         }
     }
 }

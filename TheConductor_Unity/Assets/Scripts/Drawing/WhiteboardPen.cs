@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VRTK;
+//using VRTK;
 
-public class WhiteboardPen : VRTK_InteractableObject
+public class WhiteboardPen : MonoBehaviour
 {
     public Whiteboard whiteboard;
     private RaycastHit touch;
@@ -16,14 +16,14 @@ public class WhiteboardPen : VRTK_InteractableObject
         // Get our Whiteboard component from the whiteboard object
         this.whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
         whiteboard.SetColor(Color.blue);
-        this.InteractableObjectGrabbed += new InteractableObjectEventHandler(GrabObject);
+        //this.InteractableObjectGrabbed += new InteractableObjectEventHandler(GrabObject);
     }
 
-    private VRTK_ControllerReference controllerReference;
-    private void GrabObject(object sender, InteractableObjectEventArgs e)
+    //private VRTK_ControllerReference controllerReference;
+    private void GrabObject(object sender)
     {
-        VRTK_ControllerEvents events = e.interactingObject.GetComponent<VRTK_ControllerEvents>();
-        controllerReference = VRTK_ControllerReference.GetControllerReference(events.gameObject);
+        //VRTK_ControllerEvents events = e.interactingObject.GetComponent<VRTK_ControllerEvents>();
+        //controllerReference = VRTK_ControllerReference.GetControllerReference(events.gameObject);
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class WhiteboardPen : VRTK_InteractableObject
             if (!(touch.collider.tag == "Whiteboard")) return;
 
             // Give haptic feedback when touching the whiteboard
-            VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, 0.05f, 0.1f, 0.05f);
+            //VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, 0.05f, 0.1f, 0.05f);
 
             // Set whiteboard parameters
             whiteboard.SetTouchPosition(touch.textureCoord.x, touch.textureCoord.y);

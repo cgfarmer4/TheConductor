@@ -2,43 +2,28 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using VRTK;
 
 
 //Attach to multislider prefab.
-
-
 public class ModelMultiSlider : MonoBehaviour
 {
+    public int sliderNumber;
+    public float scaleByAmount = .25f;
+
     private GameObject collidingObject;
     private GameObject controllerDevice;
-    public VRTK_ControllerEvents controllerEvents;
     public string oscName = "multiSlider";
     private bool triggerDown;
-    public float scaleByAmount = .25f;
-    //public Text textComponent;
-    public int sliderNumber;
+    public Text textComponent;
+    private VRGameController gameControllerObject;
     private float maxHeight = 3.0f;
     private float minHeight = 0f;
 
-    private void Start()
-    {
-        if(controllerEvents == null)
-        {
-            VRTK_Logger.Error(VRTK_Logger.GetCommonMessage(VRTK_Logger.CommonMessageKeys.REQUIRED_COMPONENT_MISSING_FROM_GAMEOBJECT, "VRTK_ControllerEvents_ListenerExample", "VRTK_ControllerEvents", "the same"));
-            return;
-        }
-
-        //Setup controller event listeners
-        controllerEvents.TriggerPressed += new ControllerInteractionEventHandler(TriggerPressed);
-        controllerEvents.TriggerReleased += new ControllerInteractionEventHandler(TriggerRelease);
-    }
-
     void Update()
     {
-        if (triggerDown && collidingObject)
+        if (triggerDown && collidingObject && gameControllerObject)
         {
-            TransformCubeHeight(controllerDevice);
+            TransformCubeHeight(gameControllerObject.gameObject);
         }
 
         if (!triggerDown && collidingObject)
@@ -54,42 +39,64 @@ public class ModelMultiSlider : MonoBehaviour
         {
             List<float> sliderData = new List<float>();
             gameObject.transform.localScale = new Vector3(scaleByAmount, devicePosition, scaleByAmount);
-            //textComponent.text = "/multiSlider : " + sliderNumber + " , " + devicePosition;
+            textComponent.text = "/multiSlider : " + sliderNumber + " , " + devicePosition;
             sliderData.Add(sliderNumber);
             sliderData.Add(devicePosition);
             OSCHandler.Instance.SendMessageToClient("myClient", "/" + oscName, sliderData);
-        } 
+        }
     }
 
-    private void SetCollidingObject(Collider col)
+    private void SetCollidingObject(Collider collider)
     {
-        collidingObject = col.gameObject;
+        collidingObject = collider.gameObject;
     }
 
-    public void TriggerPressed(object sender, ControllerInteractionEventArgs e)
+    public void TriggerPressed(SteamVR_Controller.Device sender)
     {
-        var index = VRTK_ControllerReference.GetRealIndex(e.controllerReference);
-        controllerDevice = VRTK_DeviceFinder.GetControllerByIndex(index, true);
         triggerDown = true;
     }
 
-    public void TriggerRelease(object sender, ControllerInteractionEventArgs e)
+    public void TriggerRelease(SteamVR_Controller.Device sender)
     {
         triggerDown = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void AddControllerEvents(VRGameController controller)
     {
+        controller.TriggerUp += TriggerPressed;
+        controller.TriggerDown += TriggerRelease;
+    }
+
+    private void RemoveControllerEvents(VRGameController controller)
+    {
+        controller.TriggerUp -= TriggerPressed;
+        controller.TriggerDown -= TriggerRelease;
+        gameControllerObject = null;
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.GetComponent<VRGameController>() != null)
+        {
+            gameControllerObject = collider.gameObject.GetComponent<VRGameController>();
+            AddControllerEvents(gameControllerObject);
+        }
+
         if (triggerDown)
         {
-            SetCollidingObject(other);
+            SetCollidingObject(collider);
         }
     }
-    private void OnTriggerStay(Collider other)
+
+    private void OnTriggerStay(Collider collider)
     {
-        if (triggerDown)
-        {
-            SetCollidingObject(other);
+        if (triggerDown)        {
+            SetCollidingObject(collider);
         }
+    }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        RemoveControllerEvents(gameControllerObject);
     }
 }

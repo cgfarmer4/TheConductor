@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using VRTK;
 
 //Attach to DrumPad prefab.
 
@@ -14,7 +14,6 @@ public class ModelDrumPad : MonoBehaviour
     public Text textComponent;
     private Vector3 startPosition;
     private Quaternion startRotation;
-    private VRTK_ControllerReference controllerReference;
     private float impactMagnifier = 120f;
     private float collisionForce = 0f;
     private float maxCollisionForce = 300f;
@@ -31,14 +30,15 @@ public class ModelDrumPad : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag != "Pad" && collision.gameObject.GetComponent<VRTK_ControllerEvents>() != null)
+        if(collision.gameObject.tag != "Pad")
         {
-            VRTK_ControllerEvents events = collision.gameObject.GetComponent<VRTK_ControllerEvents>();
-            controllerReference = VRTK_ControllerReference.GetControllerReference(events.gameObject);
+            VRGameController gameControllerObject = collision.gameObject.GetComponent<VRGameController>();
+            SteamVR_Controller.Device controllerReference = gameControllerObject.Controller;
 
-            collisionForce = VRTK_DeviceFinder.GetControllerVelocity(controllerReference).magnitude * impactMagnifier;
-            var hapticStrength = collisionForce / maxCollisionForce;
-            VRTK_ControllerHaptics.TriggerHapticPulse(controllerReference, hapticStrength, 0.1f, 0.05f);
+            ushort hapticStrength = Convert.ToUInt16(collisionForce / maxCollisionForce);
+            gameControllerObject.Vibrate(hapticStrength);
+
+            collisionForce = controllerReference.velocity.magnitude * impactMagnifier;
             float collisionMidi = ModelUtility.Remap(collisionForce, 0, 100, 70, 127);
 
             List<float> padData = new List<float>();

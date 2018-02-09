@@ -1,12 +1,72 @@
 using UnityEngine;
 using UnityEditor;
-
 using System.IO;
+using System.Linq;
+using System;
 
 namespace Cinemachine.Editor
 {
-    public static class ScriptableObjectUtility
+    public class ScriptableObjectUtility : ScriptableObject
     {
+        public static string CinemachineInstallPath
+        {
+            get { return Path.GetFullPath(CinemachineInstallAssetPath); }
+        }
+
+        public static string CinemachineInstallAssetPath
+        {
+            get
+            {
+                ScriptableObject dummy = ScriptableObject.CreateInstance<ScriptableObjectUtility>();
+                string path = AssetDatabase.GetAssetPath(MonoScript.FromScriptableObject(dummy));
+                DestroyImmediate(dummy);
+                path = path.Substring(0, path.LastIndexOf("/Base"));
+                return path;
+            }
+        }
+
+        public static bool CinemachineIsPackage 
+        { 
+            get { return CinemachineInstallAssetPath.StartsWith("Packages"); } 
+        }
+
+        public static bool AddDefineForAllBuildTargets(string k_Define)
+        {
+            bool added = false;
+            var targets = Enum.GetValues(typeof(BuildTargetGroup))
+                .Cast<BuildTargetGroup>()
+                .Where(x => x != BuildTargetGroup.Unknown)
+                .Where(x => !BuildTargetIsObsolete(x));
+
+            foreach (var target in targets)
+            {
+                var defines = PlayerSettings.GetScriptingDefineSymbolsForGroup(target).Trim();
+
+                var list = defines.Split(';', ' ')
+                    .Where(x => !string.IsNullOrEmpty(x))
+                    .ToList();
+
+                if (!list.Contains(k_Define))
+                {
+                    list.Add(k_Define);
+                    defines = list.Aggregate((a, b) => a + ";" + b);
+
+                    PlayerSettings.SetScriptingDefineSymbolsForGroup(target, defines);
+                    added = true;
+                }
+            }
+            return added;
+        }
+
+        static bool BuildTargetIsObsolete(BuildTargetGroup group)
+        {
+            var attrs = typeof(BuildTargetGroup)
+                .GetField(group.ToString())
+                .GetCustomAttributes(typeof(ObsoleteAttribute), false);
+
+            return attrs != null && attrs.Length > 0;
+        }
+
         public static void Create<T>(bool prependFolderName = false, bool trimName = true) where T : ScriptableObject
         {
             string className = typeof(T).Name;

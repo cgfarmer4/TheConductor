@@ -1,26 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
-using VRTK;
 using UnityEngine.UI;
 using System;
 
 //Attach to RadialKnob prefab.
-
 public class ModelRadial : MonoBehaviour
 {
-    public VRTK_ControllerEvents controllerEvents;
+    public VRGameController gameController;
     public Image circleImage;
 
     // Use this for initialization
     void Awake()
-    { 
+    {
         //Setup controller event listeners
-        controllerEvents.TouchpadAxisChanged += new ControllerInteractionEventHandler(TouchpadUpdate);
+        gameController.TouchpadAxisChanged += TouchpadUpdate;
     }
 
-    void TouchpadUpdate(object sender, ControllerInteractionEventArgs e)
+    void TouchpadUpdate(SteamVR_Controller.Device Controller)
     {
-        Vector2 touch = e.touchpadAxis;
+        Vector2 touch = Controller.GetAxis();
         float degrees = FindDegree(touch.x, -touch.y);
         circleImage.fillAmount = degrees / 360f;
         // 0 to 1 ... scale to 0 - 127

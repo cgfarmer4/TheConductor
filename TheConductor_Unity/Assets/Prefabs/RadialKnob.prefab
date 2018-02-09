@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114137041147099688}
   - component: {fileID: 114824956656510574}
   m_Layer: 0
-  m_Name: Image (1)
+  m_Name: BaseImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 222442121635337552}
   - component: {fileID: 114359012895716378}
   m_Layer: 0
-  m_Name: Image (2)
+  m_Name: FillImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f665b5b67188542869cc86c64afd4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerEvents: {fileID: 0}
+  gameController: {fileID: 0}
   circleImage: {fileID: 114137041147099688}
 --- !u!114 &114849926205125442
 MonoBehaviour:

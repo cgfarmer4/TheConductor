@@ -4,18 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FxTemporaire
-  - Pad
-  - Key
-  - projectile
   - Column
   - Speaker
   - Sub
   - EnvelopAudioInput
-  - TeleportIgnore
-  - ExcludeTeleport
-  - Step
-  - Whiteboard
+  - Pad
   layers:
   - Default
   - TransparentFX
@@ -25,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - CanTeleport
   - 
   - 
   - 

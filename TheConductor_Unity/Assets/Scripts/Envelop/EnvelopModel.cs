@@ -5,10 +5,11 @@
 public class EnvelopModel
 {
     //Model Objects
-    public Midway decoder;
+    public Venue decoder;
 
     public EnvelopModel()
     {
-        decoder = new Midway();
+        //Octagon, Midway
+        decoder = new Octagon();
     }
 }

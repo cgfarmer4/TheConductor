@@ -1,73 +1,35 @@
-using UnityEngine;
-using UnityEditor;
-using System;
-using System.Linq;
-using System.IO;
-
+﻿
 namespace Cinemachine.PostFX
 {
-    class PostFXAutoImport : ScriptableObject {}
-
-    [InitializeOnLoad]
-    class AutoExtractPostFX
+    /// <summary>Integrates Cinemachine with PostProcessing V1 stack.</summary>
+    /// Since PostPorcessing V1 does not create a define in Player settings the
+    /// way V2 does, we do it ourselves if we detect the presence of PostProcessing V1
+    class PostFXAutoImport
     {
-        static AutoExtractPostFX()
+        [UnityEditor.InitializeOnLoad]
+        class EditorInitialize 
         {
-            bool havePostProcessing
-                = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
-                   from type in assembly.GetTypes()
-                   where type.Name == "PostProcessingProfile"
-                   select type).Count() > 0;
-            if (havePostProcessing)
+            static EditorInitialize() 
             {
-                string path = GetScriptPath();
-                pkgFile = path + "/CinemachinePostFX.unityPackage";
-                scriptFile = path + "/../CinemachinePostFX.cs";
-                if (File.Exists(pkgFile) && (!File.Exists(scriptFile)
-                                             || File.GetLastWriteTime(pkgFile) > File.GetLastWriteTime(scriptFile)))
+#if UNITY_POST_PROCESSING_STACK_V2
+                // We have PPv2
+                CinemachinePostProcessing.InitializeModule();
+#else
+                // Check for PostProcessing V1.  Define symbol if we have it.
+                if (Cinemachine.Utility.ReflectionHelpers.TypeIsDefined("UnityEngine.PostProcessing.PostProcessingBehaviour"))
                 {
-                    Debug.Log("PostProcessing asset detected - importing CinemachinePostFX");
-                    AssetDatabase.importPackageCompleted += AssetDatabase_importPackageCompleted;
-                    AssetDatabase.importPackageFailed += AssetDatabase_importPackageFailed;
-                    AssetDatabase.importPackageCancelled += RemovePackageImportCallbacks;
-                    AssetDatabase.ImportPackage(pkgFile, false);
+                    if (Cinemachine.Editor.ScriptableObjectUtility.AddDefineForAllBuildTargets("UNITY_POST_PROCESSING_STACK_V1"))
+                    {
+                        string path = Cinemachine.Editor.ScriptableObjectUtility.CinemachineInstallAssetPath + "/PostFX/CinemachinePostFX.cs";
+                        UnityEditor.AssetDatabase.ImportAsset(path, UnityEditor.ImportAssetOptions.ForceUpdate);
+                    }
                 }
-            }
-        }
-
-        static string pkgFile;
-        static string scriptFile;
-        private static void AssetDatabase_importPackageCompleted(string packageName)
-        {
-            if (packageName == "CinemachinePostFX")
-            {
-                File.SetLastWriteTime(scriptFile, File.GetLastWriteTime(pkgFile));
-                RemovePackageImportCallbacks(packageName);
-            }
-        }
-
-        private static void AssetDatabase_importPackageFailed(string packageName, string errorMessage)
-        {
-            if (packageName == "CinemachinePostFX")
-            {
-                Debug.LogError("Failed to import " + packageName + ": " + errorMessage);
-                RemovePackageImportCallbacks(packageName);
-            }
-        }
-
-        private static void RemovePackageImportCallbacks(string packageName)
-        {
-            AssetDatabase.importPackageCompleted -= AssetDatabase_importPackageCompleted;
-            AssetDatabase.importPackageCancelled -= RemovePackageImportCallbacks;
-            AssetDatabase.importPackageFailed -= AssetDatabase_importPackageFailed;
-        }
-
-        static string GetScriptPath()
-        {
-            ScriptableObject dummy = ScriptableObject.CreateInstance<PostFXAutoImport>();
-            string path = Application.dataPath + AssetDatabase.GetAssetPath(
-                    MonoScript.FromScriptableObject(dummy)).Substring("Assets".Length);
-            return path.Substring(0, path.LastIndexOf('/'));
+    #if UNITY_POST_PROCESSING_STACK_V1
+                // We have PPv1
+                CinemachinePostFX.InitializeModule(); 
+    #endif
+#endif
+            } 
         }
     }
 }

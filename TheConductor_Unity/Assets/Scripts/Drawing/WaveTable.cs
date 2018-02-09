@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-using VRTK;
+//using VRTK;
 
 public class WaveTable : MonoBehaviour
 {
     private int numCubes = 513;
     private float waveScale = 0.019f;
-    public VRTK_ControllerEvents controllerEvents;
+    //public VRTK_ControllerEvents controllerEvents;
 
     public void Start()
     {
@@ -19,13 +19,13 @@ public class WaveTable : MonoBehaviour
             cube.transform.localPosition = new Vector3(waveScale * x, .5f, 0);
             cube.name = "slider" + x;
 
-            cube.AddComponent<VRTK_InteractableObject>();
+            //cube.AddComponent<VRTK_InteractableObject>();
 
             ModelMultiSlider slider = cube.AddComponent<ModelMultiSlider>();
             slider.sliderNumber = x;
             slider.scaleByAmount = waveScale;
             slider.oscName = "drawWave";
-            slider.controllerEvents = controllerEvents;
+            //slider.controllerEvents = controllerEvents;
         }
 
     }

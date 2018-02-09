@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using VRTK;
 
 //Attach to Controller.
-
 public class ModelControllerPosition : MonoBehaviour
 {
     private GameObject controllerDevice;
@@ -13,9 +11,9 @@ public class ModelControllerPosition : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if(!GetComponent<VRTK_ControllerEvents>())
+        if(!GetComponent<SteamVR_TrackedObject>())
         {
-            Debug.LogError("Cannot attach controller to object without VRTK Controller events!");
+            Debug.LogError("Cannot attach controller to object without SteamVR Controller events!");
         }
     }
 

@@ -59,7 +59,6 @@ GameObject:
   - component: {fileID: 65924389770131968}
   - component: {fileID: 23441488138917974}
   - component: {fileID: 114382274831259206}
-  - component: {fileID: 114413549098003076}
   - component: {fileID: 114874488276019990}
   - component: {fileID: 54804137252179084}
   m_Layer: 0
@@ -134,7 +133,6 @@ GameObject:
   - component: {fileID: 33013521213803358}
   - component: {fileID: 65930294802396320}
   - component: {fileID: 23428688147330008}
-  - component: {fileID: 114519242698259694}
   - component: {fileID: 114861336660613356}
   - component: {fileID: 54042946511366712}
   m_Layer: 0
@@ -191,7 +189,6 @@ GameObject:
   - component: {fileID: 33228378885449328}
   - component: {fileID: 65638082797408968}
   - component: {fileID: 23173356816398504}
-  - component: {fileID: 114800547177667920}
   - component: {fileID: 114502866758763770}
   - component: {fileID: 54819215013659712}
   m_Layer: 0
@@ -248,7 +245,6 @@ GameObject:
   - component: {fileID: 65285650194120898}
   - component: {fileID: 23290861605512410}
   - component: {fileID: 114967458086095588}
-  - component: {fileID: 114979966081601262}
   - component: {fileID: 114195044780362930}
   - component: {fileID: 54475449350632204}
   m_Layer: 0
@@ -306,7 +302,6 @@ GameObject:
   - component: {fileID: 65699573010671254}
   - component: {fileID: 23520758822818760}
   - component: {fileID: 114315869186820670}
-  - component: {fileID: 114360592689921532}
   - component: {fileID: 114365983438425676}
   - component: {fileID: 54377168600623406}
   m_Layer: 0
@@ -327,7 +322,6 @@ GameObject:
   - component: {fileID: 33870573533409588}
   - component: {fileID: 65929951447688784}
   - component: {fileID: 23075623759003706}
-  - component: {fileID: 114258719351349512}
   - component: {fileID: 114587677302017494}
   - component: {fileID: 54154303900720876}
   m_Layer: 0
@@ -349,7 +343,6 @@ GameObject:
   - component: {fileID: 65532839667141110}
   - component: {fileID: 23023379766200926}
   - component: {fileID: 114906612215180554}
-  - component: {fileID: 114767345957032618}
   - component: {fileID: 114282408034088620}
   - component: {fileID: 54003191131133456}
   m_Layer: 0
@@ -404,7 +397,6 @@ GameObject:
   - component: {fileID: 65718895556081882}
   - component: {fileID: 23389807441432030}
   - component: {fileID: 114035235299998666}
-  - component: {fileID: 114923398792736898}
   - component: {fileID: 114094942592858774}
   - component: {fileID: 54445501935847188}
   m_Layer: 0
@@ -425,7 +417,6 @@ GameObject:
   - component: {fileID: 33486990007311296}
   - component: {fileID: 65119976305476018}
   - component: {fileID: 23600597818823732}
-  - component: {fileID: 114779334577908424}
   - component: {fileID: 114667250789966056}
   - component: {fileID: 54907229903638916}
   m_Layer: 0
@@ -465,7 +456,6 @@ GameObject:
   - component: {fileID: 65164890399584318}
   - component: {fileID: 23968298193661056}
   - component: {fileID: 114406196738720784}
-  - component: {fileID: 114225217980472494}
   - component: {fileID: 114379206585088732}
   - component: {fileID: 54061344664607386}
   m_Layer: 0
@@ -505,7 +495,6 @@ GameObject:
   - component: {fileID: 65311549681085964}
   - component: {fileID: 23260286813065606}
   - component: {fileID: 114523301708391450}
-  - component: {fileID: 114527974111520414}
   - component: {fileID: 114205855060574766}
   - component: {fileID: 54152044485291030}
   m_Layer: 0
@@ -527,7 +516,6 @@ GameObject:
   - component: {fileID: 65738803341978258}
   - component: {fileID: 23211434667200056}
   - component: {fileID: 114887929604550868}
-  - component: {fileID: 114301749529152878}
   - component: {fileID: 114670957843715420}
   - component: {fileID: 54135072841242788}
   m_Layer: 0
@@ -549,7 +537,6 @@ GameObject:
   - component: {fileID: 65170543088956466}
   - component: {fileID: 23023659146488898}
   - component: {fileID: 114537690395648470}
-  - component: {fileID: 114984109740190736}
   - component: {fileID: 114410748333335506}
   - component: {fileID: 54710907978100706}
   m_Layer: 0
@@ -624,7 +611,6 @@ GameObject:
   - component: {fileID: 65348322123307926}
   - component: {fileID: 23138691647621708}
   - component: {fileID: 114002266985060720}
-  - component: {fileID: 114702761227190330}
   - component: {fileID: 114731614624524046}
   - component: {fileID: 54948452170234598}
   m_Layer: 0
@@ -709,7 +695,6 @@ GameObject:
   - component: {fileID: 65015132159627682}
   - component: {fileID: 23780792493612832}
   - component: {fileID: 114962533118213968}
-  - component: {fileID: 114846604502618520}
   - component: {fileID: 114253994036531702}
   - component: {fileID: 54787685434162434}
   m_Layer: 0
@@ -764,7 +749,6 @@ GameObject:
   - component: {fileID: 65104995494499352}
   - component: {fileID: 23979373825517162}
   - component: {fileID: 114631517290355016}
-  - component: {fileID: 114374587031761600}
   - component: {fileID: 114492750597001210}
   - component: {fileID: 54026374273065720}
   m_Layer: 0
@@ -1106,8 +1090,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721353544991038}
-  m_LocalRotation: {x: -0, y: 0.68170416, z: -0, w: 0.73162794}
-  m_LocalPosition: {x: 0.5063858, y: 1.65, z: -0.8704817}
+  m_LocalRotation: {x: -0, y: 0.28687748, z: -0, w: 0.95796734}
+  m_LocalPosition: {x: 2.33, y: 0.11, z: -2.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224530236161254756}
@@ -1117,7 +1101,7 @@ Transform:
   - {fileID: 4521795105278998}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 85.954, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 33.342003, z: 0}
 --- !u!4 &4633707990571376
 Transform:
   m_ObjectHideFlags: 1
@@ -1301,6 +1285,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1316,6 +1301,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1333,6 +1319,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1348,6 +1335,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1365,6 +1353,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1380,6 +1369,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1397,6 +1387,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1412,6 +1403,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1429,6 +1421,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1444,6 +1437,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1461,6 +1455,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1476,6 +1471,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1493,6 +1489,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1508,6 +1505,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1525,6 +1523,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1540,6 +1539,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1557,6 +1557,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1572,6 +1573,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1589,6 +1591,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1604,6 +1607,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1621,6 +1625,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1636,6 +1641,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1653,6 +1659,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1668,6 +1675,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1685,6 +1693,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1700,6 +1709,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1717,6 +1727,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1732,6 +1743,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1749,6 +1761,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1764,6 +1777,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1781,6 +1795,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1796,6 +1811,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -2791,18 +2807,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114013356083737198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2815,6 +2840,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114035235299998666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2826,18 +2853,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114057632807634414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2850,6 +2886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114094942592858774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2877,6 +2915,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114164507851687450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2950,36 +2990,6 @@ MonoBehaviour:
   padX: 3
   midiNote: 40
   textComponent: {fileID: 114610656231566166}
---- !u!114 &114225217980472494
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1469714669223842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
 --- !u!114 &114251392123970074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2992,6 +3002,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114252225714532414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3004,6 +3016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114253994036531702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3019,36 +3033,6 @@ MonoBehaviour:
   padX: 4
   midiNote: 50
   textComponent: {fileID: 114610656231566166}
---- !u!114 &114258719351349512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1362926988055196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
 --- !u!114 &114282408034088620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3064,36 +3048,6 @@ MonoBehaviour:
   padX: 2
   midiNote: 47
   textComponent: {fileID: 114610656231566166}
---- !u!114 &114301749529152878
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1505008958615520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
 --- !u!114 &114315869186820670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3105,18 +3059,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114318197501846128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3129,36 +3092,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
---- !u!114 &114360592689921532
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1341217947217162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114365983438425676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3174,36 +3109,6 @@ MonoBehaviour:
   padX: 4
   midiNote: 51
   textComponent: {fileID: 114610656231566166}
---- !u!114 &114374587031761600
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1984658777015242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
 --- !u!114 &114379206585088732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3230,18 +3135,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114406196738720784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3253,18 +3167,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114410748333335506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3280,36 +3203,6 @@ MonoBehaviour:
   padX: 1
   midiNote: 44
   textComponent: {fileID: 114610656231566166}
---- !u!114 &114413549098003076
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1083624032775160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
 --- !u!114 &114492750597001210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3337,6 +3230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114498687809042924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3370,6 +3265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114502866758763770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3385,36 +3282,6 @@ MonoBehaviour:
   padX: 1
   midiNote: 36
   textComponent: {fileID: 114610656231566166}
---- !u!114 &114519242698259694
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1165664999742390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
 --- !u!114 &114523301708391450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3426,48 +3293,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
---- !u!114 &114527974111520414
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1485167032992334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114537690395648470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3479,18 +3325,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114561731635031510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3503,6 +3358,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114587677302017494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3563,6 +3420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114631517290355016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3574,18 +3433,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114650672093428564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3598,6 +3466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114667250789966056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3625,6 +3495,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114670957843715420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3640,36 +3512,6 @@ MonoBehaviour:
   padX: 1
   midiNote: 45
   textComponent: {fileID: 114610656231566166}
---- !u!114 &114702761227190330
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1705244678994590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
 --- !u!114 &114723497329758952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3682,6 +3524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114731614624524046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3709,6 +3553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114742903432448276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3721,6 +3567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114759048371350730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3733,126 +3581,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnabled: 1
---- !u!114 &114767345957032618
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1365562105133798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
---- !u!114 &114779334577908424
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1419355713576676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
---- !u!114 &114800547177667920
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286012113902276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
---- !u!114 &114846604502618520
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1880374613279068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
+  activateInteractTouch: 1
+  activateTrackedCollider: 0
 --- !u!114 &114861336660613356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3894,18 +3624,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114906612215180554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3917,48 +3656,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
---- !u!114 &114923398792736898
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1408024217601628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114962533118213968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3970,18 +3688,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!114 &114967458086095588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3993,78 +3720,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipOnNearTouch: {fileID: 0}
+  strengthOnNearTouch: 0
+  durationOnNearTouch: 0
+  intervalOnNearTouch: 0.05
+  cancelOnNearUntouch: 1
   clipOnTouch: {fileID: 0}
   strengthOnTouch: 0.25
   durationOnTouch: 0.1
   intervalOnTouch: 0.05
+  cancelOnUntouch: 1
   clipOnGrab: {fileID: 0}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
+  cancelOnUngrab: 1
   clipOnUse: {fileID: 0}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
---- !u!114 &114979966081601262
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1305724426139498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
---- !u!114 &114984109740190736
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1549349525001674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 0.11764705, g: 1, b: 0.92697763, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
+  cancelOnUnuse: 1
+  objectToAffect: {fileID: 0}
 --- !u!222 &222220501157158596
 CanvasRenderer:
   m_ObjectHideFlags: 1

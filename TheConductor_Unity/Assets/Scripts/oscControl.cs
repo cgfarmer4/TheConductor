@@ -30,6 +30,7 @@ public class oscControl : MonoBehaviour
 
         // Initialize OSC servers (listeners)
         myServer = OSCHandler.Instance.CreateServer("myServer", inPort);
+        Debug.Log("Created OSC Server:" + inPort);
 
         // Set buffer size (bytes) of the server (default 1024)
         myServer.ReceiveBufferSize = 1024;
@@ -57,7 +58,6 @@ public class oscControl : MonoBehaviour
     private void ReceivedOSC(OSCPacket pckt)
     {
         if (pckt == null) { Debug.Log("Empty packet"); return; }
-
         // Address
         string address = pckt.Address.Substring(1);
         switch(address)
@@ -87,10 +87,8 @@ public class oscControl : MonoBehaviour
             //Check all public values for a match on the address router
             foreach (OSCRoute route in oscRoutes)
             {
-                if (route.name == message.Address) // need to run a regex match here.
+                if ("/" + route.name == message.Address) // need to run a regex match here.
                 {
-                    Debug.Log("Found the route yo!");
-
                     //Each string then has a unity event callback associated with it.
                     route.callbackEvent.Invoke(message.Data);
                     break;

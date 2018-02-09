@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using VRTK;
+//using VRTK;
 
 //Attach to Collection of stepper rows/columns. Stepper prefab.
 
@@ -14,17 +14,17 @@ public class ModelStepperManager : MonoBehaviour
     public List<GameObject> rows;
     List<List<GameObject>> columns = new List<List<GameObject>>();
 
-    public VRTK_ControllerEvents controllerEvents;
-    public VRTK_DestinationMarker pointer;
+    //public VRTK_ControllerEvents controllerEvents;
+    //public VRTK_DestinationMarker pointer;
 
     Vector2 touchPadPosition;
 
     private void Start()
     {
         //Setup controller event listeners
-        controllerEvents.TouchpadAxisChanged += new ControllerInteractionEventHandler(TouchpadUpdate);
-        pointer.DestinationMarkerEnter += new DestinationMarkerEventHandler(DestinationMarkerEnter);
-        pointer.DestinationMarkerHover += new DestinationMarkerEventHandler(DestinationMarkerHover);
+        //controllerEvents.TouchpadAxisChanged += new ControllerInteractionEventHandler(TouchpadUpdate);
+        //pointer.DestinationMarkerEnter += new DestinationMarkerEventHandler(DestinationMarkerEnter);
+        //pointer.DestinationMarkerHover += new DestinationMarkerEventHandler(DestinationMarkerHover);
     }
 
     void Awake()
@@ -43,43 +43,43 @@ public class ModelStepperManager : MonoBehaviour
         }
     }
 
-    private void TouchpadUpdate(object sender, ControllerInteractionEventArgs e)
+    private void TouchpadUpdate(object sender)
     {
-        touchPadPosition = e.touchpadAxis;
+        //touchPadPosition = e.touchpadAxis;
     }
 
-    private void DestinationMarkerEnter(object sender, DestinationMarkerEventArgs e)
+    private void DestinationMarkerEnter(object sender)
     {
-        UpdateStepWithVelocity(e);
+        UpdateStepWithVelocity();
     }
 
-    private void DestinationMarkerHover(object sender, DestinationMarkerEventArgs e)
+    private void DestinationMarkerHover(object sender)
     {
-        UpdateStepWithVelocity(e);
+        UpdateStepWithVelocity();
     }
 
-    private void UpdateStepWithVelocity(DestinationMarkerEventArgs e)
+    private void UpdateStepWithVelocity()
     {
-        RaycastHit hit = e.raycastHit;
+        //RaycastHit hit = e.raycastHit;
 
-        if (hit.collider.tag == "Step")
-        {
-            if (touchPadPosition.y > 0.7f)
-            {
-                // Max Velocity
-                hit.collider.SendMessage("Selected");
-            }
-            else if (touchPadPosition.y > -0.7f && touchPadPosition.y < 0.7f)
-            {
-                // Calculate Velocity
-                hit.collider.SendMessage("BetweenSelect", touchPadPosition.y);
-            }
-            else if (touchPadPosition.y < -0.7f)
-            {
-                // Min Velocity
-                hit.collider.SendMessage("Unselected");
-            }
-        }
+        //if (hit.collider.tag == "Step")
+        //{
+        //    if (touchPadPosition.y > 0.7f)
+        //    {
+        //        // Max Velocity
+        //        hit.collider.SendMessage("Selected");
+        //    }
+        //    else if (touchPadPosition.y > -0.7f && touchPadPosition.y < 0.7f)
+        //    {
+        //        // Calculate Velocity
+        //        hit.collider.SendMessage("BetweenSelect", touchPadPosition.y);
+        //    }
+        //    else if (touchPadPosition.y < -0.7f)
+        //    {
+        //        // Min Velocity
+        //        hit.collider.SendMessage("Unselected");
+        //    }
+        //}
     }
 
     void OnDestroy()

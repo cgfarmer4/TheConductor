@@ -39,8 +39,8 @@ public class Midway : Venue
     ArrayList columns;
     GameObject EnvelopModel;
 
-    public GameObject[] inputs = new GameObject[NUM_INPUTS];
-    public GameObject[] outputChannels = new GameObject[NUM_CHANNELS];
+    public new GameObject[] inputs = new GameObject[NUM_INPUTS];
+    public new GameObject[] outputChannels = new GameObject[NUM_CHANNELS];
 
     // Use this for initialization  
     public Midway()

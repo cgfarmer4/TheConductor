@@ -1,22 +1,31 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
+using Cinemachine.Utility;
+using System.IO;
 
 namespace Cinemachine.Editor
 {
     [CustomEditor(typeof(CinemachineBrain))]
-    internal sealed class CinemachineBrainEditor : UnityEditor.Editor
+    internal sealed class CinemachineBrainEditor : BaseEditor<CinemachineBrain>
     {
-        private CinemachineBrain Target { get { return target as CinemachineBrain; } }
-        private static string[] m_excludeFields;
-        EmbeddeAssetEditor<CinemachineBlenderSettings> m_SettingsEditor;
-
+        EmbeddeAssetEditor<CinemachineBlenderSettings> m_BlendsEditor;
         bool mEventsExpanded = false;
+
+        protected override List<string> GetExcludedPropertiesInInspector()
+        {
+            List<string> excluded = base.GetExcludedPropertiesInInspector();
+            excluded.Add(FieldPath(x => x.m_CameraCutEvent));
+            excluded.Add(FieldPath(x => x.m_CameraActivatedEvent));
+            excluded.Add(FieldPath(x => x.m_CustomBlends));
+            return excluded;
+        }
 
         private void OnEnable()
         {
-            m_SettingsEditor = new EmbeddeAssetEditor<CinemachineBlenderSettings>(
-                    SerializedPropertyHelper.PropertyName(() => Target.m_CustomBlends), this);
-            m_SettingsEditor.OnChanged = (CinemachineBlenderSettings b) =>
+            m_BlendsEditor = new EmbeddeAssetEditor<CinemachineBlenderSettings>(
+                    FieldPath(x => x.m_CustomBlends), this);
+            m_BlendsEditor.OnChanged = (CinemachineBlenderSettings b) =>
                 {
                     UnityEditorInternal.InternalEditorUtility.RepaintAllViews();
                 };
@@ -24,13 +33,13 @@ namespace Cinemachine.Editor
 
         private void OnDisable()
         {
-            if (m_SettingsEditor != null)
-                m_SettingsEditor.OnDisable();
+            if (m_BlendsEditor != null)
+                m_BlendsEditor.OnDisable();
         }
 
         public override void OnInspectorGUI()
         {
-            serializedObject.Update();
+            BeginInspector();
 
             // Show the active camera and blend
             GUI.enabled = false;
@@ -44,16 +53,10 @@ namespace Cinemachine.Editor
             GUI.enabled = true;
 
             // Normal properties
-            if (m_excludeFields == null)
-                m_excludeFields = new string[]
-                {
-                    "m_Script",
-                    SerializedPropertyHelper.PropertyName(() => Target.m_CameraCutEvent),
-                    SerializedPropertyHelper.PropertyName(() => Target.m_CameraActivatedEvent)
-                };
-            DrawPropertiesExcluding(serializedObject, m_excludeFields);
+            DrawRemainingPropertiesInInspector();
 
-            m_SettingsEditor.DrawEditorCombo(
+            // Blender
+            m_BlendsEditor.DrawEditorCombo(
                 "Create New Blender Asset",
                 Target.gameObject.name + " Blends", "asset", string.Empty,
                 "Custom Blends", false);
@@ -61,8 +64,8 @@ namespace Cinemachine.Editor
             mEventsExpanded = EditorGUILayout.Foldout(mEventsExpanded, "Events");
             if (mEventsExpanded)
             {
-                EditorGUILayout.PropertyField(serializedObject.FindProperty(() => Target.m_CameraCutEvent));
-                EditorGUILayout.PropertyField(serializedObject.FindProperty(() => Target.m_CameraActivatedEvent));
+                EditorGUILayout.PropertyField(FindProperty(x => x.m_CameraCutEvent));
+                EditorGUILayout.PropertyField(FindProperty(x => x.m_CameraActivatedEvent));
             }
             serializedObject.ApplyModifiedProperties();
         }
@@ -73,8 +76,8 @@ namespace Cinemachine.Editor
             if (brain.OutputCamera != null && brain.m_ShowCameraFrustum)
             {
                 DrawCameraFrustumGizmo(
-                    brain, new LensSettings(brain.OutputCamera), 
-                    brain.OutputCamera.transform.localToWorldMatrix, 
+                    brain, LensSettings.FromCamera(brain.OutputCamera), 
+                    brain.transform.localToWorldMatrix, 
                     Color.white); // GML why is this color hardcoded?
             }
         }
@@ -112,6 +115,54 @@ namespace Cinemachine.Editor
             }
             Gizmos.matrix = originalMatrix;
             Gizmos.color = originalGizmoColour;
+        }
+
+        [DrawGizmo(GizmoType.Active | GizmoType.InSelectionHierarchy | GizmoType.Pickable, typeof(CinemachineVirtualCameraBase))]
+        internal static void DrawVirtualCameraBaseGizmos(CinemachineVirtualCameraBase vcam, GizmoType selectionType)
+        {
+            // Don't draw gizmos on hidden stuff
+            if ((vcam.VirtualCameraGameObject.hideFlags & (HideFlags.HideInHierarchy | HideFlags.HideInInspector)) != 0)
+                return;
+
+            if (vcam.ParentCamera != null && (selectionType & GizmoType.Active) == 0)
+                return;
+
+            CameraState state = vcam.State;
+            Gizmos.DrawIcon(state.FinalPosition, kGizmoFileName, true);
+
+            DrawCameraFrustumGizmo(
+                CinemachineCore.Instance.FindPotentialTargetBrain(vcam),
+                state.Lens,
+                Matrix4x4.TRS(
+                    state.FinalPosition,
+                    UnityQuaternionExtensions.Normalized(state.FinalOrientation), Vector3.one),
+                CinemachineCore.Instance.IsLive(vcam)
+                    ? CinemachineSettings.CinemachineCoreSettings.ActiveGizmoColour
+                    : CinemachineSettings.CinemachineCoreSettings.InactiveGizmoColour);
+        }
+
+        static string kGizmoFileName = "Cinemachine/cm_logo_lg.png";
+        [InitializeOnLoad]
+        static class InstallGizmos
+        {
+            static InstallGizmos()
+            {
+                string srcFile = ScriptableObjectUtility.CinemachineInstallPath + "/Gizmos/" + kGizmoFileName;
+                if (File.Exists(srcFile))
+                {
+                    string dstFile = Application.dataPath + "/Gizmos";
+                    if (!Directory.Exists(dstFile))
+                        Directory.CreateDirectory(dstFile);
+                    dstFile += "/" + kGizmoFileName;
+                    if (!File.Exists(dstFile) 
+                        || File.GetCreationTime(dstFile) < File.GetCreationTime(srcFile))
+                    {
+                        if (!Directory.Exists(Path.GetDirectoryName(dstFile)))
+                            Directory.CreateDirectory(Path.GetDirectoryName(dstFile));
+                        File.Copy(srcFile, dstFile, true);
+                    }
+                }
+            }
         }
     }
 }
