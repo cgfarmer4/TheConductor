@@ -29,22 +29,23 @@ public class Midway : Venue
     public ArrayList COLUMN_POSITIONS;
     public ArrayList SUB_POSITIONS;
 
-    public static float xRange = 228.24f * .02f;
-    public static float yRange = 141.73f * .02f;
-    public static float zRange = 329.972f * .02f;
-    public static float cx = 0f;
-    public static float cy = 70.1f *.02f;
-    public static float cz = 0f;
-
     ArrayList columns;
     GameObject EnvelopModel;
-
-    public new GameObject[] inputs = new GameObject[NUM_INPUTS];
-    public new GameObject[] outputChannels = new GameObject[NUM_CHANNELS];
 
     // Use this for initialization  
     public Midway()
     {
+        inputs = new GameObject[NUM_INPUTS];
+        outputChannels = new GameObject[NUM_CHANNELS];
+
+        cx = 0f;
+        cy = 70.1f * .02f;
+        cz = 0f;
+
+        xRange = 228.24f * .02f;
+        yRange = 141.73f * .02f;
+        zRange = 329.972f * .02f;
+
         COLUMN_POSITIONS = new ArrayList();
         COLUMN_POSITIONS.Add(new Vector3(-OUTER_OFFSET_X, -OUTER_OFFSET_Z, 101));
         COLUMN_POSITIONS.Add(new Vector3(-INNER_OFFSET_X, -INNER_OFFSET_Z, 102));

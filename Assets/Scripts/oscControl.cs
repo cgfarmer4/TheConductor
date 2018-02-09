@@ -30,7 +30,6 @@ public class oscControl : MonoBehaviour
 
         // Initialize OSC servers (listeners)
         myServer = OSCHandler.Instance.CreateServer("myServer", inPort);
-        Debug.Log("Created OSC Server:" + inPort);
 
         // Set buffer size (bytes) of the server (default 1024)
         myServer.ReceiveBufferSize = 1024;
@@ -58,19 +57,20 @@ public class oscControl : MonoBehaviour
     private void ReceivedOSC(OSCPacket pckt)
     {
         if (pckt == null) { Debug.Log("Empty packet"); return; }
+
         // Address
         string address = pckt.Address.Substring(1);
-        switch(address)
+        switch (address)
         {
             case "bundle":
-                ParseBundle(pckt.Data);
+                ParsePacket(pckt.Data);
                 break;
         }
     }
 
     // Class declaration
     [System.Serializable]
-    public class OSCEvent : UnityEvent<List<object>> { }
+    public class OSCEvent : UnityEvent<string, List<object>> { }
 
     [Serializable]
     public struct OSCRoute
@@ -80,19 +80,54 @@ public class oscControl : MonoBehaviour
     }
     public OSCRoute[] oscRoutes;
 
-    private void ParseBundle(List<object> data)
+    private void ParsePacket(List<object> data)
     {
-        foreach (OSCMessage message in data)
+        //Check for Bundle
+        foreach(object oscData in data)
         {
-            //Check all public values for a match on the address router
-            foreach (OSCRoute route in oscRoutes)
+            if(oscData.GetType() == typeof(OSCMessage))
             {
-                if ("/" + route.name == message.Address) // need to run a regex match here.
-                {
-                    //Each string then has a unity event callback associated with it.
-                    route.callbackEvent.Invoke(message.Data);
-                    break;
-                }
+                ParseMessage((OSCMessage)oscData);
+            }
+
+            if (oscData.GetType() == typeof(OSCBundle))
+            {
+                ParseBundle((OSCBundle)oscData);
+            }
+        }
+    }
+
+    private void ParseBundle(OSCBundle bundle)
+    {
+        //Check for Bundle
+        foreach (object oscData in bundle.Data)
+        {
+            if (oscData.GetType() == typeof(OSCMessage))
+            {
+                ParseMessage((OSCMessage)oscData);
+            }
+
+            if (oscData.GetType() == typeof(OSCBundle))
+            {
+                ParseBundle((OSCBundle)oscData);
+            }
+        }
+    }
+
+    private void ParseMessage(OSCMessage message)
+    {
+        //Check all public values for a match on the address router
+        foreach (OSCRoute route in oscRoutes)
+        {
+            char[] delimiters = { '/' };
+            String[] splitAddress = message.Address.Split(delimiters);
+
+            if (route.name == splitAddress[1]) // need to run a regex match here. for now match first part.
+            {
+                //Each string then has a unity event callback associated with it.
+                route.callbackEvent.Invoke(message.Address, message.Data);
+
+                break;
             }
         }
     }

@@ -2,34 +2,22 @@
 using System.Collections;
 
 public class LaserPointer : MonoBehaviour
-{
-    public Transform cameraRigTransform;
-    public GameObject teleportReticlePrefab;
-    private GameObject reticle;
-    private Transform teleportReticleTransform;
-    public Transform headTransform;
-    public Vector3 teleportReticleOffset;
-    public LayerMask teleportMask;
-    private bool shouldTeleport;
-
-    private SteamVR_TrackedObject trackedObj;
+{ 
+    private SteamVR_TrackedController trackedObj;
     private SteamVR_Controller.Device Controller
     {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+        get { return SteamVR_Controller.Input((int)trackedObj.controllerIndex); }
     }
 
     private void Start()
     {
         laser = Instantiate(laserPrefab);
         laserTransform = laser.transform;
-
-        reticle = Instantiate(teleportReticlePrefab);
-        teleportReticleTransform = reticle.transform;
     }
 
     void Awake()
     {
-        trackedObj = GetComponent<SteamVR_TrackedObject>();
+        trackedObj = GetComponent<SteamVR_TrackedController>();
     }
 
     public GameObject laserPrefab;
@@ -46,15 +34,6 @@ public class LaserPointer : MonoBehaviour
             hit.distance);
     }
 
-    private void Teleport()
-    {
-        shouldTeleport = false;
-        reticle.SetActive(false);
-        Vector3 difference = cameraRigTransform.position - headTransform.position;
-        difference.y = 0;
-        cameraRigTransform.position = hitPoint + difference;
-    }
-
     private void Update()
     {
         if (Controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
@@ -65,26 +44,15 @@ public class LaserPointer : MonoBehaviour
             {
                 hitPoint = hit.point;
                 ShowLaser(hit);
-                reticle.SetActive(true);
-                teleportReticleTransform.position = hitPoint + teleportReticleOffset;
-                shouldTeleport = true;
             }
             else
             {
                 laser.SetActive(false);
-                reticle.SetActive(false);
-                shouldTeleport = false;
             }
         }
         else
         {
             laser.SetActive(false);
-            reticle.SetActive(false);
-        }
-
-        if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad) && shouldTeleport)
-        {
-            Teleport();
         }
     }
 }

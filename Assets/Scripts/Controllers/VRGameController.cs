@@ -11,16 +11,16 @@ public class VRGameController : MonoBehaviour {
     public event ControllerEvent PressDown;
     public event ControllerEvent PressUp;
 
-    private SteamVR_TrackedObject trackedObj;
+    private SteamVR_TrackedController trackedObj;
     [HideInInspector]
     public SteamVR_Controller.Device Controller
     {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+        get { return SteamVR_Controller.Input((int)trackedObj.controllerIndex); }
     }
 
     void Awake()
     {
-        trackedObj = GetComponent<SteamVR_TrackedObject>();
+        trackedObj = GetComponent<SteamVR_TrackedController>();
     }
 
     public void Vibrate(ushort strength)

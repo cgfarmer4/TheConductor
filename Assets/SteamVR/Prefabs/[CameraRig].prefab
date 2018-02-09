@@ -25,12 +25,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 458974}
-  - component: {fileID: 11411726}
   - component: {fileID: 54610466751180592}
   - component: {fileID: 65997172242773682}
   - component: {fileID: 114232998001536484}
   - component: {fileID: 114417948581092858}
   - component: {fileID: 114647249722463856}
+  - component: {fileID: 114793871003299306}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -99,13 +99,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 402434}
-  - component: {fileID: 11463128}
+  - component: {fileID: 114031931225933336}
   - component: {fileID: 54256737774392350}
   - component: {fileID: 65663161372334832}
   - component: {fileID: 114810819153811694}
   - component: {fileID: 114495755896009076}
   - component: {fileID: 114256380794017370}
-  - component: {fileID: 114473671762992918}
+  - component: {fileID: 114800077281330672}
+  - component: {fileID: 114708389694674290}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -196,7 +197,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146900}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: 0, y: 0, z: -0.74}
+  m_LocalPosition: {x: 0.18, y: 0.03, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 458974}
@@ -387,19 +388,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155680}
   m_Enabled: 1
---- !u!114 &11411726
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 124034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: -1
-  origin: {fileID: 0}
 --- !u!114 &11411836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -475,19 +463,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrcam: {fileID: 0}
---- !u!114 &11463128
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: -1
-  origin: {fileID: 0}
 --- !u!114 &11470538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1092,6 +1067,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14, y: 0.07, z: 0.05}
   m_Center: {x: 0, y: -0.04, z: 0.02}
+--- !u!114 &114031931225933336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7346a42905a29b347b1f492e8ad7b49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 0
+  triggerPressed: 0
+  steamPressed: 0
+  menuPressed: 0
+  padPressed: 0
+  padTouched: 0
+  gripped: 0
 --- !u!114 &114101468063010498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1447,27 +1440,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 10
   origin: {fileID: 0}
---- !u!114 &114473671762992918
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 159396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c94eee7be391d7b4cab6b01b5fd6dbee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraRigTransform: {fileID: 420908}
-  teleportReticlePrefab: {fileID: 100000, guid: a9e891d1e1a9cb141b96aebaaee994cc,
-    type: 3}
-  headTransform: {fileID: 408470}
-  teleportReticleOffset: {x: 0, y: 0.05, z: 0}
-  teleportMask:
-    serializedVersion: 2
-    m_Bits: 0
-  laserPrefab: {fileID: 1345662675598764, guid: aed539f5571a8954c91a81f383fa1d40,
-    type: 2}
 --- !u!114 &114495755896009076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1521,6 +1493,24 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
+--- !u!114 &114708389694674290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e8a839a7c5b7e4580c59e305fb5f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  color: {r: 0.8000001, g: 0.21960786, b: 0.10196079, a: 1}
+  thickness: 0.002
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  addRigidBody: 0
+  reference: {fileID: 0}
 --- !u!114 &114718936953063714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1534,6 +1524,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 7
   origin: {fileID: 0}
+--- !u!114 &114793871003299306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7346a42905a29b347b1f492e8ad7b49f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIndex: 0
+  triggerPressed: 0
+  steamPressed: 0
+  menuPressed: 0
+  padPressed: 0
+  padTouched: 0
+  gripped: 0
 --- !u!114 &114798950435431868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1547,6 +1555,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 1
   origin: {fileID: 0}
+--- !u!114 &114800077281330672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ea4ca25701f1641b42e66fc6e33f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114810819153811694
 MonoBehaviour:
   m_ObjectHideFlags: 1

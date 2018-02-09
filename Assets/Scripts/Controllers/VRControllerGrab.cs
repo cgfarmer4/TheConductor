@@ -4,10 +4,10 @@ using System.Collections;
 public class VRControllerGrab : MonoBehaviour
 {
 
-    private SteamVR_TrackedObject trackedObj;
+    private SteamVR_TrackedController trackedObj;
     private SteamVR_Controller.Device Controller
     {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+        get { return SteamVR_Controller.Input((int)trackedObj.controllerIndex); }
     }
 
     private GameObject collidingObject;
@@ -15,7 +15,7 @@ public class VRControllerGrab : MonoBehaviour
 
     void Awake()
     {
-        trackedObj = GetComponent<SteamVR_TrackedObject>();
+        trackedObj = GetComponent<SteamVR_TrackedController>();
     }
 
     private void SetCollidingObject(Collider col)

@@ -35,6 +35,8 @@ GameObject:
   m_Component:
   - component: {fileID: 224751040844341458}
   - component: {fileID: 114203236204657664}
+  - component: {fileID: 114873201085436042}
+  - component: {fileID: 65635948522965066}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -144,6 +146,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &65635948522965066
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042945002733610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 160, y: 20, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114006122969627726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,6 +371,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0579ffd4f7fc6aa419627f53e15a2994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114873201085436042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042945002733610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c05cf10ad08f34498642983babacd4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!222 &222013883358029104

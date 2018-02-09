@@ -9,6 +9,9 @@ TagManager:
   - Sub
   - EnvelopAudioInput
   - Pad
+  - Key
+  - Whiteboard
+  - Step
   layers:
   - Default
   - TransparentFX

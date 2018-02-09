@@ -1,53 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using VRTK;
 
 public class DrawLineManager : MonoBehaviour {
 
     private Material activeMat;
+
+    //Assign materials for the UVs from the MeshLineRenderer.
 	public Material DefaultMat;
     public Material squareWave;
     public Material sawWave;
     public Material cycleWave;
     public Material triangleWave;
 
-    //VRTK Controllers
-    //public VRTK_ControllerEvents leftControllerEvents;
-    //public VRTK_ControllerEvents rightControllerEvents;
-    private GameObject controllerDevice;
+    public VRGameController gameController;
     private bool triggerDown = false;
 
     private MeshLineRenderer currLine;
-    private int numClicks = 0;
+    private uint numClicks = 0;
     private string activeWave;
-    //private VRTK_ControllerReference controllerReference;
+    private int controllerReference;
 
     private void Start()
     {
         activeWave = "square";
         activeMat = DefaultMat;
         //Setup controller event listeners
-        //leftControllerEvents.TriggerClicked += new ControllerInteractionEventHandler(TriggerClicked);
-        //leftControllerEvents.TriggerUnclicked += new ControllerInteractionEventHandler(TriggerUnclicked);
-       
-        //Add multislider mapping for wavetable.
-        WaveTable waves = gameObject.AddComponent<WaveTable>();
-        //waves.controllerEvents = rightControllerEvents;
+        gameController.TriggerDown += TriggerDown;
+        gameController.TriggerUp += TriggerUp;
     }
 
-    private void TriggerClicked(object sender)
+    private void TriggerDown(SteamVR_Controller.Device controller)
     {
-        //controllerReference = e.controllerReference;
-        //var index =  VRTK_ControllerReference.GetRealIndex(e.controllerReference);
-        //controllerDevice = VRTK_DeviceFinder.GetControllerByIndex(index, true);
         triggerDown = true;
     }
 
-    private void TriggerUnclicked(object sender)
+    private void TriggerUp(SteamVR_Controller.Device controller)
     {
         triggerDown = false;
-        controllerDevice = null;
 
         List<float> data = new List<float>();
         data.Add(0f);
@@ -55,6 +45,8 @@ public class DrawLineManager : MonoBehaviour {
         //Send OSC Amplitude to 0 on trigger release.
         OSCHandler.Instance.SendMessageToClient("myClient", "/waveData/" + activeWave, data);
     }
+
+    //TODO: Replace VRTK Menu dial with simple touchpad events. Check quadrants and use switch statement to pick wave based on quadrant.
 
     //Selected from Radial Menu.
     private void SquareWave()
@@ -88,13 +80,13 @@ public class DrawLineManager : MonoBehaviour {
     private List<float> ControllerVelocityAndAmplitude()
     {
         List<float> controllerData = new List<float>();
-        //float velocity = VRTK_DeviceFinder.GetControllerVelocity(controllerReference).magnitude;
-        float height = controllerDevice.transform.position.y;
+        float velocity = gameController.Controller.velocity.magnitude;
+        float height = gameController.transform.position.y;
         height = ModelUtility.Remap(height, 0, 4, 0, 20000);
-        //velocity = ModelUtility.Remap(velocity, 0, 5, 0, 1);
+        velocity = ModelUtility.Remap(velocity, 0, 5, 0, 1);
 
         controllerData.Add(height); //Send OSC Amplitude based on velocity. hover at .3
-        //controllerData.Add(velocity); //Send OSC Frequency based on y
+        controllerData.Add(velocity); //Send OSC Frequency based on y
         return controllerData;
     }
 
@@ -114,7 +106,7 @@ public class DrawLineManager : MonoBehaviour {
                 currLine.SetWidth(.1f);
             }
 
-            currLine.AddPoint(controllerDevice.transform.position);
+            currLine.AddPoint(gameController.transform.position);
             numClicks++;
 
             List<float> data = ControllerVelocityAndAmplitude();

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4565515566606172}
-  - component: {fileID: 114004992682600942}
+  - component: {fileID: 114370103519881210}
   m_Layer: 0
   m_Name: LineManager
   m_TagString: Untagged
@@ -69,7 +69,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114004992682600942
+--- !u!114 &114370103519881210
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -85,5 +85,4 @@ MonoBehaviour:
   sawWave: {fileID: 0}
   cycleWave: {fileID: 0}
   triangleWave: {fileID: 0}
-  leftControllerEvents: {fileID: 0}
-  rightControllerEvents: {fileID: 0}
+  gameController: {fileID: 0}
