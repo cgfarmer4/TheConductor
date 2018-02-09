@@ -8275,13 +8275,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
+  laserPointer: {fileID: 0}
   rows:
   - {fileID: 1134595320076442}
   - {fileID: 1295850634685272}
   - {fileID: 1222800614737646}
   - {fileID: 1439381739444194}
   - {fileID: 1361894965282532}
-  laserPointer: {fileID: 0}
 --- !u!114 &114914846755658394
 MonoBehaviour:
   m_ObjectHideFlags: 1

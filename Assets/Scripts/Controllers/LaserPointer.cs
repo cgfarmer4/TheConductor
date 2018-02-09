@@ -9,6 +9,9 @@ public class LaserPointer : MonoBehaviour
         get { return SteamVR_Controller.Input((int)trackedObj.controllerIndex); }
     }
 
+    public delegate void RaycastHitEvent(RaycastHit hit);
+    public RaycastHitEvent raycastHitEvent;
+
     private void Start()
     {
         laser = Instantiate(laserPrefab);
@@ -44,6 +47,8 @@ public class LaserPointer : MonoBehaviour
             {
                 hitPoint = hit.point;
                 ShowLaser(hit);
+                if(raycastHitEvent != null)
+                    raycastHitEvent.Invoke(hit);
             }
             else
             {

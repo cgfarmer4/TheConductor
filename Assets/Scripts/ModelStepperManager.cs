@@ -8,24 +8,21 @@ using System.Collections.Generic;
 public class ModelStepperManager : MonoBehaviour
 {
     public VRGameController gameController;
+    public LaserPointer laserPointer;
     private static ModelStepperManager m_Instance;
     public static ModelStepperManager Instance { get { return m_Instance; } }
     private bool hovering;
-    //Get references to all the rows.]
+
+    //Get references to all the rows.
     public List<GameObject> rows;
     List<List<GameObject>> columns = new List<List<GameObject>>();
-    public SteamVR_LaserPointer laserPointer;
-
     Vector2 touchPadPosition;
 
     private void Start()
     {
         //Setup controller event listeners
         gameController.TouchpadAxisChanged += TouchpadUpdate;
-        laserPointer.PointerIn -= DestinationMarkerEnter;
-        laserPointer.PointerIn += DestinationMarkerEnter;
-        laserPointer.PointerOut -= DestinationMarkerLeave;
-        laserPointer.PointerOut += DestinationMarkerLeave;
+        laserPointer.raycastHitEvent += UpdateStepWithVelocity;
     }
 
     void Awake()
@@ -49,51 +46,26 @@ public class ModelStepperManager : MonoBehaviour
         touchPadPosition = controller.GetAxis();
     }
 
-    private void DestinationMarkerEnter(object sender, PointerEventArgs e)
+    private void UpdateStepWithVelocity(RaycastHit hit)
     {
-        UpdateStepWithVelocity();
-        hovering = true;
-    }
-
-    private void DestinationMarkerLeave(object sender, PointerEventArgs e)
-    {
-        hovering = false;
-    }
-
-    private void Update()
-    {
-        if(hovering)
+        if (hit.collider.tag == "Step")
         {
-            UpdateStepWithVelocity();
-        }
-    }
-
-    private void UpdateStepWithVelocity()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(laserPointer.transform.position, transform.forward, out hit, 100))
-        {
-            Debug.Log("updating with velocity " + hit.collider.gameObject.tag);
-            Destroy(hit.collider);
-            if (hit.collider.tag == "Step")
+            if (touchPadPosition.y > 0.7f)
             {
-                if (touchPadPosition.y > 0.7f)
-                {
-                    // Max Velocity
-                    hit.collider.SendMessage("Selected");
-                }
-                else if (touchPadPosition.y > -0.7f && touchPadPosition.y < 0.7f)
-                {
-                    // Calculate Velocity
-                    hit.collider.SendMessage("BetweenSelect", touchPadPosition.y);
-                }
-                else if (touchPadPosition.y < -0.7f)
-                {
-                    // Min Velocity
-                    hit.collider.SendMessage("Unselected");
-                }
+                // Max Velocity
+                hit.collider.SendMessage("Selected");
             }
-        }            
+            else if (touchPadPosition.y > -0.7f && touchPadPosition.y < 0.7f)
+            {
+                // Calculate Velocity
+                hit.collider.SendMessage("BetweenSelect", touchPadPosition.y);
+            }
+            else if (touchPadPosition.y < -0.7f)
+            {
+                // Min Velocity
+                hit.collider.SendMessage("Unselected");
+            }
+        }
     }
 
     void OnDestroy()
