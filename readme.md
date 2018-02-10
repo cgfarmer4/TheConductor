@@ -64,8 +64,8 @@ Send named midi events to Unity from Ableton. Attach any `public` function to th
 ![alt text](Docs/TC_MidiSend.jpg "Midi Send")
 
 ### VRControllerPosition
-**Unity Attach**: VRTK_Controller \
-VRTK controller positions to XYZ `live.dial`s. Map the controller positions to any value.
+**Unity Attach**: VRGameController \
+Controller positions to XYZ `live.dial`s. Map the controller positions to any value.
 ![alt text](Docs/TC_VRControllerPosition.jpg "VR Controller Position")
 
 ### VRPosition
