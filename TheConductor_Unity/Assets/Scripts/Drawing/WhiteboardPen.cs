@@ -14,17 +14,11 @@ public class WhiteboardPen : MonoBehaviour
     void Start()
     {
         // Get our Whiteboard component from the whiteboard object
-        this.whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
+        whiteboard = GameObject.Find("Whiteboard").GetComponent<Whiteboard>();
         whiteboard.SetColor(Color.blue);
-        //this.InteractableObjectGrabbed += new InteractableObjectEventHandler(GrabObject);
     }
 
-    //private VRTK_ControllerReference controllerReference;
-    private void GrabObject(object sender)
-    {
-        //VRTK_ControllerEvents events = e.interactingObject.GetComponent<VRTK_ControllerEvents>();
-        //controllerReference = VRTK_ControllerReference.GetControllerReference(events.gameObject);
-    }
+    //TODO: Replace VRTK snap object into place on grab.
 
     // Update is called once per frame
     void Update()

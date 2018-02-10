@@ -15,7 +15,7 @@ public class MidiReceiveEvents : MonoBehaviour
     public NoteEvent NoteOn;
     public NoteEvent NoteOff;
 
-   public void Notes(List<object> data)
+   public void Notes(string Address, List<object> data)
     {
         if (data[2].ToString() == OSCReceiveName)
         {
