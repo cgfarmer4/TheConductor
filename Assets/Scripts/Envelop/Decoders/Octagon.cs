@@ -8,7 +8,7 @@ public class Octagon : Venue
 {
     //Constants
     private static float METER = 1.0f;
-    private static float SPEAKER_CIRCLE_RADIUS = 100f;
+    private static float SPEAKER_CIRCLE_RADIUS = 117f;
     private static float HEIGHT = 10f;
 
     private static int NUM_INPUTS = 16;
@@ -36,14 +36,14 @@ public class Octagon : Venue
         COLUMN_POSITIONS = new ArrayList();
         float radiansDegrees = (float)Math.PI / 180;
         //calculate XY  points around the center of a circle to match our decoder angles.
-        COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(30 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(30 * radiansDegrees), 101));
+        COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(20 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(20 * radiansDegrees), 101));
         COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(75 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(75 * radiansDegrees), 102));
         COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(105 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(105 * radiansDegrees), 103));
-        COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(150 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(150 * radiansDegrees), 104));
-        COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(210 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(210 * radiansDegrees), 105));
+        COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(165 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(165 * radiansDegrees), 104));
+        COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(195 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(195 * radiansDegrees), 105));
         COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(255 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(255 * radiansDegrees), 106));
         COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(285 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(285 * radiansDegrees), 107));
-        COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(330 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(330 * radiansDegrees), 108));
+        COLUMN_POSITIONS.Add(new Vector3(SPEAKER_CIRCLE_RADIUS * (float)Math.Cos(340 * radiansDegrees), SPEAKER_CIRCLE_RADIUS * (float)Math.Sin(340 * radiansDegrees), 108));
 
         GenerateModel();
     }
@@ -55,6 +55,7 @@ public class Octagon : Venue
         ChannelModels();
         InputModels();
         EnvelopModel.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
+        EnvelopModel.transform.localPosition = new Vector3(.8f, 0, .27f);
     }
 
     void InputModels()

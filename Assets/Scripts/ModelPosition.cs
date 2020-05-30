@@ -16,7 +16,8 @@ public class ModelPosition : MonoBehaviour
     void Start()
     {
         audioPositionElement = gameObject;
-        textCanvas.SetActive(false);
+        if(textCanvas != null)
+            textCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,15 +28,19 @@ public class ModelPosition : MonoBehaviour
             List<object> positionData = new List<object>();
 
             positionData.Add(audioPositionElement.transform.position.x);
-            positionData.Add(audioPositionElement.transform.position.y - .6f);
-            positionData.Add(-audioPositionElement.transform.position.z);
+            positionData.Add(audioPositionElement.transform.position.y);
+            positionData.Add(audioPositionElement.transform.position.z);
             positionData.Add(oscOutputName);
 
             //Send positional data back to Ableton Live  (eap -> envelop audio position)
             OSCHandler.Instance.SendMessageToClient("myClient", "/audioPosition/xyz", positionData);
-            textCanvas.SetActive(true);
-            canvasState = true;
-            textComponent.text = "/audioPosition/xyz\n" + positionData[0] + ", " + positionData[1] + ", " + positionData[2];
+            if (textCanvas != null)
+            {
+                textCanvas.SetActive(true);
+                canvasState = true;
+                textComponent.text = "/audioPosition/xyz\n" + positionData[0] + ", " + positionData[1] + ", " + positionData[2];
+            }
+           
             audioPositionElement.transform.hasChanged = false;
         }
         else if(canvasState == true)

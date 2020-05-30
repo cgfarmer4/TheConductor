@@ -116,6 +116,7 @@ public class oscControl : MonoBehaviour
 
     private void ParseMessage(OSCMessage message)
     {
+        Debug.Log("OSC " + message);
         //Check all public values for a match on the address router
         foreach (OSCRoute route in oscRoutes)
         {
